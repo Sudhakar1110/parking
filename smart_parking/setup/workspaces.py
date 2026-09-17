@@ -2,19 +2,33 @@ import frappe
 from json import dumps
 
 def execute():
-    """Fix sidebar: delete extra Module Defs and recreate workspaces."""
+    """Fix sidebar: update DocType modules first, then delete extra Module Defs."""
 
-    # Delete extra Module Defs so they don't create separate sidebar entries
+    # Step 1: Update ALL DocType module fields to Smart Parking via SQL
+    for mod_name in ["Parking Zone", "Vehicle Management", "Parking Billing", "Parking Operations"]:
+        frappe.db.sql("UPDATE `tabDocType` SET `module` = 'Smart Parking' WHERE `module` = %s", mod_name)
+        frappe.db.sql("UPDATE `tabReport` SET `module` = 'Smart Parking' WHERE `module` = %s", mod_name)
+        frappe.db.sql("UPDATE `tabNumber Card` SET `module` = 'Smart Parking' WHERE `module` = %s", mod_name)
+        frappe.db.sql("UPDATE `tabDashboard Chart` SET `module` = 'Smart Parking' WHERE `module` = %s", mod_name)
+        frappe.db.sql("UPDATE `tabWorkspace` SET `module` = 'Smart Parking' WHERE `module` = %s", mod_name)
+        print(f"Updated module references from '{mod_name}' to 'Smart Parking'")
+
+    frappe.db.commit()
+
+    # Step 2: Delete extra Module Defs (now safe since no DocTypes reference them)
     for mod_name in ["Parking Zone", "Vehicle Management", "Parking Billing", "Parking Operations"]:
         if frappe.db.exists("Module Def", mod_name):
             frappe.delete_doc("Module Def", mod_name, ignore_permissions=True)
             print(f"Deleted Module Def: {mod_name}")
 
-    # Delete existing workspaces
+    frappe.db.commit()
+
+    # Step 3: Delete existing workspaces
     for name in ["Smart Parking", "Parking Zone", "Vehicle Management", "Parking Billing", "Parking Operations"]:
         if frappe.db.exists("Workspace", name):
             frappe.delete_doc("Workspace", name, ignore_permissions=True)
 
+    # Step 4: Create workspaces
     workspaces = [
         {
             "name": "Smart Parking",
@@ -162,7 +176,7 @@ def execute():
         for link in links:
             doc.append("links", link)
         doc.insert(ignore_permissions=True)
-        print(f"Created: {ws_data['name']}")
+        print(f"Created workspace: {ws_data['name']}")
 
     frappe.db.commit()
-    print("Done!")
+    print("All done! Sidebar should now show only Smart Parking.")
