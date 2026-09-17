@@ -67,8 +67,7 @@
     "module":  "Parking Billing",
     "module_onboarding":  "",
     "name":  "Parking Billing",
-    "parent_page": "Smart Parking",
-    "number_cards":  [
+        "number_cards":  [
 
                      ],
     "owner":  "Administrator",

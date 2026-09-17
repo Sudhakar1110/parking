@@ -75,8 +75,7 @@
     "module":  "Vehicle Management",
     "module_onboarding":  "",
     "name":  "Vehicle Management",
-    "parent_page": "Smart Parking",
-    "number_cards":  [
+        "number_cards":  [
 
                      ],
     "owner":  "Administrator",

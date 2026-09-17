@@ -54,8 +54,7 @@
     "module":  "Parking Operations",
     "module_onboarding":  "",
     "name":  "Parking Operations",
-    "parent_page": "Smart Parking",
-    "number_cards":  [
+        "number_cards":  [
 
                      ],
     "owner":  "Administrator",
