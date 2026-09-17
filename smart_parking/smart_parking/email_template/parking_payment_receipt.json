@@ -1,0 +1,12 @@
+{
+ "creation": "2026-01-01 00:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Email Template",
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Smart Parking",
+ "name": "Parking Payment Receipt",
+ "owner": "Administrator",
+ "response": "<h2>Payment Receipt</h2><p>Dear {{ doc.customer_name or 'Customer' }},</p><p>Thank you for your payment. Here are the details:</p><table><tr><td><strong>Payment ID:</strong></td><td>{{ doc.name }}</td></tr><tr><td><strong>Amount:</strong></td><td>{{ frappe.format_amount(doc.amount_paid, doc.currency) }}</td></tr><tr><td><strong>Vehicle:</strong></td><td>{{ doc.vehicle }}</td></tr><tr><td><strong>Zone:</strong></td><td>{{ doc.zone }}</td></tr><tr><td><strong>Date:</strong></td><td>{{ frappe.format_date(doc.payment_date) }}</td></tr><tr><td><strong>Method:</strong></td><td>{{ doc.payment_method }}</td></tr></table><p>If you have any questions, please contact the parking management team.</p><p>Best regards,<br>Smart Parking Management</p>",
+ "subject": "Parking Payment Receipt - {{ doc.name }}"
+}

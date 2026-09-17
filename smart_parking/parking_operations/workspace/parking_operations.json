@@ -1,0 +1,57 @@
+{
+ "app": "smart_parking",
+ "category": "Modules",
+ "color": "#6a1b9a",
+ "creation": "2026-01-01 00:00:00.000000",
+ "custom": 1,
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "icon": "octicon octicon-organization",
+ "index_web_pages_for_search": 1,
+ "is_hidden": 0,
+ "label": "Parking Operations",
+ "links": [
+  {
+   "type": "Card Break",
+   "label": "Operations"
+  },
+  {
+   "type": "Shortcut",
+   "name": "Parking Staff",
+   "label": "Staff",
+   "type": "DocType",
+   "link": "List/Parking Staff",
+   "description": "Manage staff"
+  },
+  {
+   "type": "Shortcut",
+   "name": "Parking Shift",
+   "label": "Shifts",
+   "type": "DocType",
+   "link": "List/Parking Shift",
+   "description": "Manage shifts"
+  },
+  {
+   "type": "Shortcut",
+   "name": "Parking Alert",
+   "label": "Alerts",
+   "type": "DocType",
+   "link": "List/Parking Alert",
+   "description": "View alerts"
+  }
+ ],
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Parking Operations",
+ "name": "Parking Operations",
+ "owner": "Administrator",
+ "parent_page": "",
+ "pin_to_bottom": 0,
+ "pin_to_top": 0,
+ "public": 1,
+ "sequence_id": 1,
+ "system_menu": 0,
+ "tab_name": "Parking Operations",
+ "type": "Link",
+ "url": ""
+}

@@ -1,0 +1,162 @@
+{
+  "actions": [],
+  "autoname": "naming_series:",
+  "creation": "Creator",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "naming_series",
+    "staff_member",
+    "zone",
+    "column_break_1",
+    "shift_date",
+    "status",
+    "section_break_time",
+    "shift_start",
+    "shift_end",
+    "column_break_time",
+    "duration_hours",
+    "section_break_notes",
+    "remarks"
+  ],
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "Series",
+      "options": "PSHF-.YYYY.-.####",
+      "reqd": 1,
+      "set_only_once": 1
+    },
+    {
+      "fieldname": "staff_member",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Staff Member",
+      "options": "Parking Staff",
+      "reqd": 1
+    },
+    {
+      "fieldname": "zone",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Parking Zone",
+      "options": "Parking Zone",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "Today",
+      "fieldname": "shift_date",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "label": "Shift Date",
+      "reqd": 1
+    },
+    {
+      "default": "Scheduled",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Status",
+      "options": "Draft\nScheduled\nIn Progress\nCompleted\nCancelled"
+    },
+    {
+      "fieldname": "section_break_time",
+      "fieldtype": "Section Break",
+      "label": "Shift Timing"
+    },
+    {
+      "fieldname": "shift_start",
+      "fieldtype": "Datetime",
+      "in_list_view": 1,
+      "label": "Shift Start",
+      "reqd": 1
+    },
+    {
+      "fieldname": "shift_end",
+      "fieldtype": "Datetime",
+      "in_list_view": 1,
+      "label": "Shift End",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_time",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "duration_hours",
+      "fieldtype": "Float",
+      "label": "Duration (Hours)",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_break_notes",
+      "fieldtype": "Section Break",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Small Text",
+      "label": "Remarks"
+    }
+  ],
+  "index_web_pages_for_search": 1,
+  "is_submittable": 0,
+  "links": [],
+  "modified": "2026-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Parking Operations",
+  "name": "Parking Shift",
+  "naming_rule": "Expression",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "role": "Parking Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "report": 1,
+      "export": 1,
+      "import": 1
+    },
+    {
+      "role": "Parking Supervisor",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "report": 1,
+      "export": 1
+    },
+    {
+      "role": "Parking Attendant",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "report": 1
+    },
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "report": 1,
+      "export": 1,
+      "import": 1
+    }
+  ],
+  "search_fields": "staff_member,zone,shift_date",
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": [],
+  "title_field": "staff_member",
+  "track_changes": 1
+}

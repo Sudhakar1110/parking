@@ -1,0 +1,14 @@
+{
+  "name": "smart_parking",
+  "description": "Smart Parking Management System",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sudhakar1110/solar.git"
+  },
+  "author": "Sudhakar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sudhakar1110/solar/issues"
+  },
+  "homepage": "https://github.com/Sudhakar1110/solar#readme"
+}

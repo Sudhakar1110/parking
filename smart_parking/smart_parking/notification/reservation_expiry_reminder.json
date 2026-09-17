@@ -1,0 +1,17 @@
+{
+ "creation": "2026-01-01 00:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Notification",
+ "enabled": 1,
+ "event": "Value Change",
+ "field_name": "status",
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Smart Parking",
+ "name": "Reservation Expiry Reminder",
+ "owner": "Administrator",
+ "recipients": [{"receiver_by_document_type": "User", "receiver_by_role": "Customer"}],
+ "subject": "Reservation Expired - {{ doc.name }}",
+ "document_type": "Parking Reservation",
+ "message": "<p>Dear {{ doc.customer }},</p><p>Your reservation {{ doc.name }} has expired.</p><p>Zone: {{ doc.zone }}<br>Slot: {{ doc.slot }}</p><p>If you need further assistance, please contact parking management.</p>"
+}

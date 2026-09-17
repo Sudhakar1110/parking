@@ -1,0 +1,12 @@
+{
+ "creation": "2026-01-01 00:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Email Template",
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Smart Parking",
+ "name": "Reservation Confirmation",
+ "owner": "Administrator",
+ "response": "<h2>Reservation Confirmed</h2><p>Dear {{ doc.customer }},</p><p>Your parking reservation has been confirmed. Details below:</p><table><tr><td><strong>Reservation ID:</strong></td><td>{{ doc.name }}</td></tr><tr><td><strong>Zone:</strong></td><td>{{ doc.zone }}</td></tr><tr><td><strong>Slot:</strong></td><td>{{ doc.slot }}</td></tr><tr><td><strong>Vehicle:</strong></td><td>{{ doc.vehicle }}</td></tr><tr><td><strong>Start Time:</strong></td><td>{{ frappe.format_datetime(doc.start_time) }}</td></tr><tr><td><strong>End Time:</strong></td><td>{{ frappe.format_datetime(doc.end_time) }}</td></tr><tr><td><strong>Fee:</strong></td><td>{{ frappe.format_amount(doc.reservation_fee, doc.currency) }}</td></tr></table><p>Please arrive on time to secure your spot.</p><p>Best regards,<br>Smart Parking Management</p>",
+ "subject": "Reservation Confirmed - {{ doc.name }}"
+}

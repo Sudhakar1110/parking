@@ -1,0 +1,77 @@
+{
+ "app": "smart_parking",
+ "category": "Modules",
+ "color": "#2e7d32",
+ "creation": "2026-01-01 00:00:00.000000",
+ "custom": 1,
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "icon": "octicon octicon-file-media",
+ "index_web_pages_for_search": 1,
+ "is_hidden": 0,
+ "label": "Vehicle Management",
+ "links": [
+  {
+   "type": "Card Break",
+   "label": "Vehicle Management"
+  },
+  {
+   "type": "Shortcut",
+   "name": "Vehicle",
+   "label": "Vehicles",
+   "type": "DocType",
+   "link": "List/Vehicle",
+   "description": "Vehicle registry"
+  },
+  {
+   "type": "Shortcut",
+   "name": "Vehicle Entry",
+   "label": "Vehicle Entries",
+   "type": "DocType",
+   "link": "List/Vehicle Entry",
+   "description": "Track vehicle entries"
+  },
+  {
+   "type": "Shortcut",
+   "name": "Parking Reservation",
+   "label": "Reservations",
+   "type": "DocType",
+   "link": "List/Parking Reservation",
+   "description": "Manage reservations"
+  },
+  {
+   "type": "Shortcut",
+   "name": "Parking Incident",
+   "label": "Incidents",
+   "type": "DocType",
+   "link": "List/Parking Incident",
+   "description": "Report incidents"
+  },
+  {
+   "type": "Card Break",
+   "label": "Reports"
+  },
+  {
+   "type": "Shortcut",
+   "name": "Vehicle Entry Register",
+   "label": "Vehicle Entry Register",
+   "type": "Report",
+   "link": "Report/Vehicle Entry Register",
+   "description": "Vehicle entry logs"
+  }
+ ],
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Vehicle Management",
+ "name": "Vehicle Management",
+ "owner": "Administrator",
+ "parent_page": "",
+ "pin_to_bottom": 0,
+ "pin_to_top": 0,
+ "public": 1,
+ "sequence_id": 1,
+ "system_menu": 0,
+ "tab_name": "Vehicle Management",
+ "type": "Link",
+ "url": ""
+}

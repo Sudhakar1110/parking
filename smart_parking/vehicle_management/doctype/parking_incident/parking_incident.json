@@ -1,0 +1,216 @@
+{
+  "actions": [],
+  "autoname": "naming_series:",
+  "creation": "Creator",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "naming_series",
+    "incident_type",
+    "severity",
+    "column_break_1",
+    "status",
+    "reported_date",
+    "section_break_location",
+    "zone",
+    "slot",
+    "column_break_location",
+    "vehicle_entry",
+    "vehicle",
+    "section_break_details",
+    "description",
+    "resolution",
+    "column_break_details",
+    "reported_by",
+    "resolved_by",
+    "resolved_date",
+    "section_break_notes",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "Series",
+      "options": "PINC-.YYYY.-.####",
+      "reqd": 1,
+      "set_only_once": 1
+    },
+    {
+      "default": "Damage",
+      "fieldname": "incident_type",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Incident Type",
+      "options": "Damage\nAccident\nTheft\nVandalism\nBreakdown\nUnauthorized Parking\nNoise Complaint\nOther",
+      "reqd": 1
+    },
+    {
+      "default": "Low",
+      "fieldname": "severity",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Severity",
+      "options": "Low\nMedium\nHigh\nCritical",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "Open",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Status",
+      "options": "Open\nIn Progress\nResolved\nClosed",
+      "reqd": 1
+    },
+    {
+      "default": "Now",
+      "fieldname": "reported_date",
+      "fieldtype": "Datetime",
+      "label": "Reported Date"
+    },
+    {
+      "fieldname": "section_break_location",
+      "fieldtype": "Section Break",
+      "label": "Location"
+    },
+    {
+      "fieldname": "zone",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Parking Zone",
+      "options": "Parking Zone",
+      "reqd": 1
+    },
+    {
+      "fieldname": "slot",
+      "fieldtype": "Link",
+      "label": "Parking Slot",
+      "options": "Parking Slot"
+    },
+    {
+      "fieldname": "column_break_location",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "vehicle_entry",
+      "fieldtype": "Link",
+      "label": "Vehicle Entry",
+      "options": "Vehicle Entry"
+    },
+    {
+      "fieldname": "vehicle",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Vehicle",
+      "options": "Vehicle"
+    },
+    {
+      "fieldname": "section_break_details",
+      "fieldtype": "Section Break",
+      "label": "Details"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text Editor",
+      "label": "Description",
+      "reqd": 1
+    },
+    {
+      "fieldname": "resolution",
+      "fieldtype": "Text Editor",
+      "label": "Resolution"
+    },
+    {
+      "fieldname": "column_break_details",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "reported_by",
+      "fieldtype": "Link",
+      "label": "Reported By",
+      "options": "User"
+    },
+    {
+      "fieldname": "resolved_by",
+      "fieldtype": "Link",
+      "label": "Resolved By",
+      "options": "User"
+    },
+    {
+      "fieldname": "resolved_date",
+      "fieldtype": "Datetime",
+      "label": "Resolved Date"
+    },
+    {
+      "fieldname": "section_break_notes",
+      "fieldtype": "Section Break",
+      "label": "Additional Notes"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes"
+    }
+  ],
+  "index_web_pages_for_search": 1,
+  "is_submittable": 0,
+  "links": [],
+  "modified": "2026-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Vehicle Management",
+  "name": "Parking Incident",
+  "naming_rule": "Expression",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "role": "Parking Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "report": 1,
+      "export": 1,
+      "import": 1
+    },
+    {
+      "role": "Parking Attendant",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "report": 1
+    },
+    {
+      "role": "Parking Supervisor",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "report": 1,
+      "export": 1
+    },
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "report": 1,
+      "export": 1,
+      "import": 1
+    }
+  ],
+  "search_fields": "zone,vehicle,incident_type",
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": [],
+  "title_field": "incident_type",
+  "track_changes": 1
+}

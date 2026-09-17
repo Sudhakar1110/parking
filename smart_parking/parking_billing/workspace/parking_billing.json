@@ -1,0 +1,69 @@
+{
+ "app": "smart_parking",
+ "category": "Modules",
+ "color": "#e65100",
+ "creation": "2026-01-01 00:00:00.000000",
+ "custom": 1,
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "icon": "octicon octicon-credit-card",
+ "index_web_pages_for_search": 1,
+ "is_hidden": 0,
+ "label": "Parking Billing",
+ "links": [
+  {
+   "type": "Card Break",
+   "label": "Billing"
+  },
+  {
+   "type": "Shortcut",
+   "name": "Parking Fee Structure",
+   "label": "Fee Structures",
+   "type": "DocType",
+   "link": "List/Parking Fee Structure",
+   "description": "Configure fee structures"
+  },
+  {
+   "type": "Shortcut",
+   "name": "Parking Fee Entry",
+   "label": "Fee Entries",
+   "type": "DocType",
+   "link": "List/Parking Fee Entry",
+   "description": "View fee entries"
+  },
+  {
+   "type": "Shortcut",
+   "name": "Parking Payment",
+   "label": "Payments",
+   "type": "DocType",
+   "link": "List/Parking Payment",
+   "description": "View payments"
+  },
+  {
+   "type": "Card Break",
+   "label": "Reports"
+  },
+  {
+   "type": "Shortcut",
+   "name": "Revenue Report",
+   "label": "Revenue Report",
+   "type": "Report",
+   "link": "Report/Revenue Report",
+   "description": "Revenue analytics"
+  }
+ ],
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Parking Billing",
+ "name": "Parking Billing",
+ "owner": "Administrator",
+ "parent_page": "",
+ "pin_to_bottom": 0,
+ "pin_to_top": 0,
+ "public": 1,
+ "sequence_id": 1,
+ "system_menu": 0,
+ "tab_name": "Parking Billing",
+ "type": "Link",
+ "url": ""
+}

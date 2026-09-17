@@ -1,0 +1,25 @@
+{
+ "creation": "2026-01-01 00:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Report",
+ "is_standard": "Yes",
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Parking Zone",
+ "name": "Slot Occupancy Report",
+ "owner": "Administrator",
+ "ref_doctype": "Parking Zone",
+ "report_name": "Slot Occupancy Report",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "Parking Manager"
+  },
+  {
+   "role": "Parking Supervisor"
+  },
+  {
+   "role": "System Manager"
+  }
+ ]
+}
