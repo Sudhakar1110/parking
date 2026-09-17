@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 app_name = "smart_parking"
 app_title = "Smart Parking"
 app_publisher = "Sudhakar"
-app_description = "Smart Parking Management System — zone management, slot tracking, vehicle entry/exit, reservations, billing, and analytics"
+app_description = "Smart Parking Management System - zone management, slot tracking, vehicle entry/exit, reservations, billing, and analytics"
 app_email = "admin@example.com"
 app_license = "MIT"
 app_version = "1.0.0"
@@ -35,42 +35,6 @@ fixtures = [
     },
     "Custom Field",
     "Property Setter",
-    {
-        "dt": "Module Def",
-        "filters": [["module_name", "=", "Smart Parking"]],
-    },
-    {
-        "dt": "Workspace",
-        "filters": [["name", "=", "Smart Parking"]],
-    },
-    {
-        "dt": "Notification",
-        "filters": [["name", "in", [
-            "Parking Slot Occupancy Alert",
-            "Reservation Expiry Reminder",
-            "Vehicle Overdue Alert",
-            "Payment Received Notification",
-        ]]],
-    },
-    {
-        "dt": "Number Card",
-        "filters": [["name", "in", [
-            "Available Slots",
-            "Occupied Slots",
-            "Today Revenue",
-            "Active Reservations",
-            "Today Vehicle Entries",
-        ]]],
-    },
-    {
-        "dt": "Dashboard Chart",
-        "filters": [["name", "in", [
-            "Daily Occupancy Trend",
-            "Revenue by Zone",
-            "Vehicle Type Distribution",
-            "Monthly Revenue Trend",
-        ]]],
-    },
 ]
 
 # Custom Roles
@@ -100,11 +64,9 @@ scheduler_events = {
 # Document Events
 doc_events = {
     "Vehicle Entry": {
+        "validate": "smart_parking.utils.entry_exit.validate_vehicle_entry",
         "on_submit": "smart_parking.utils.entry_exit.on_vehicle_entry_submit",
         "on_cancel": "smart_parking.utils.entry_exit.on_vehicle_entry_cancel",
-    },
-    "Vehicle Entry": {
-        "validate": "smart_parking.utils.entry_exit.validate_vehicle_entry",
     },
     "Parking Reservation": {
         "on_submit": "smart_parking.utils.reservations.on_reservation_submit",
@@ -120,11 +82,6 @@ website_route_rules = [
     {"from_route": "/parking-portal/<path:app_path>", "to_route": "parking_portal"},
 ]
 
-# Override DocType Dashboards
-override_doctype_dashboards = {
-    "Sales Invoice": "smart_parking.parking_billing.doctype.parking_payment.parking_payment_dashboard.get_data",
-}
-
 # Jinja
 jinja = {
     "methods": [
@@ -132,17 +89,4 @@ jinja = {
         "smart_parking.utils.jinja_methods.get_zone_status",
     ],
     "filters": [],
-}
-
-# Doc Hooks
-has_permission = {
-    "Vehicle": "smart_parking.utils.permissions.has_vehicle_permission",
-    "Vehicle Entry": "smart_parking.utils.permissions.has_vehicle_entry_permission",
-}
-
-# Override whitelisted methods
-override_whitelisted_methods = {
-    "smart_parking.api.check_availability": "smart_parking.api.check_availability",
-    "smart_parking.api.book_slot": "smart_parking.api.book_slot",
-    "smart_parking.api.get_parking_dashboard_data": "smart_parking.api.get_parking_dashboard_data",
 }
