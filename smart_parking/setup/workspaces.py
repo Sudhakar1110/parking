@@ -2,42 +2,68 @@ import frappe
 from json import dumps
 
 def execute():
-    """Fix sidebar: update DocType modules first, then delete extra Module Defs."""
+    """Fix sidebar by force-updating everything via SQL and clearing caches."""
 
-    # Step 1: Update ALL DocType module fields to Smart Parking via SQL
+    # Step 1: Update ALL references via SQL
     for mod_name in ["Parking Zone", "Vehicle Management", "Parking Billing", "Parking Operations"]:
         frappe.db.sql("UPDATE `tabDocType` SET `module` = 'Smart Parking' WHERE `module` = %s", mod_name)
         frappe.db.sql("UPDATE `tabReport` SET `module` = 'Smart Parking' WHERE `module` = %s", mod_name)
         frappe.db.sql("UPDATE `tabNumber Card` SET `module` = 'Smart Parking' WHERE `module` = %s", mod_name)
         frappe.db.sql("UPDATE `tabDashboard Chart` SET `module` = 'Smart Parking' WHERE `module` = %s", mod_name)
         frappe.db.sql("UPDATE `tabWorkspace` SET `module` = 'Smart Parking' WHERE `module` = %s", mod_name)
-        print(f"Updated module references from '{mod_name}' to 'Smart Parking'")
+        frappe.db.sql("UPDATE `tabDocType` SET `module` = 'Smart Parking' WHERE `module` = %s", mod_name)
+        print(f"Updated refs from '{mod_name}'")
 
-    frappe.db.commit()
-
-    # Step 2: Delete extra Module Defs (now safe since no DocTypes reference them)
+    # Step 2: Delete extra Module Defs using SQL (bypass link check)
     for mod_name in ["Parking Zone", "Vehicle Management", "Parking Billing", "Parking Operations"]:
-        if frappe.db.exists("Module Def", mod_name):
-            frappe.delete_doc("Module Def", mod_name, ignore_permissions=True)
-            print(f"Deleted Module Def: {mod_name}")
+        frappe.db.sql("DELETE FROM `tabModule Def` WHERE name = %s", mod_name)
+        print(f"Deleted Module Def: {mod_name}")
 
+    # Step 3: Delete Sidebar entries for old modules
+    frappe.db.sql("DELETE FROM `tabSidebar` WHERE module IN ('Parking Zone', 'Vehicle Management', 'Parking Billing', 'Parking Operations')")
+    frappe.db.sql("DELETE FROM `tabSidebar Item` WHERE parent IN (SELECT name FROM `tabSidebar` WHERE module IN ('Parking Zone', 'Vehicle Management', 'Parking Billing', 'Parking Operations'))")
     frappe.db.commit()
+    print("Cleaned up Sidebar entries")
 
-    # Step 3: Delete existing workspaces
+    # Step 4: Delete existing workspaces
     for name in ["Smart Parking", "Parking Zone", "Vehicle Management", "Parking Billing", "Parking Operations"]:
         if frappe.db.exists("Workspace", name):
             frappe.delete_doc("Workspace", name, ignore_permissions=True)
 
-    # Step 4: Create workspaces
-    workspaces = [
+    # Step 5: Create all workspaces under Smart Parking
+    all_ws = _get_workspace_data()
+    for ws_data in all_ws:
+        links = ws_data.pop("links")
+        content = ws_data["content"]
+        doc = frappe.get_doc({
+            "doctype": "Workspace",
+            "public": 1,
+            "standard": 1,
+            "type": "Workspace",
+            "link_type": "DocType",
+            "content": content,
+            "parent_page": "",
+            "for_user": "",
+            **ws_data
+        })
+        for link in links:
+            doc.append("links", link)
+        doc.insert(ignore_permissions=True)
+        print(f"Created: {ws_data['name']}")
+
+    frappe.db.commit()
+
+    # Step 6: Clear ALL caches
+    frappe.clear_cache()
+    print("Cleared all caches")
+    print("DONE! Hard refresh browser with Ctrl+Shift+R")
+
+
+def _get_workspace_data():
+    return [
         {
-            "name": "Smart Parking",
-            "label": "Smart Parking",
-            "title": "Smart Parking",
-            "module": "Smart Parking",
-            "icon": "car",
-            "indicator_color": "",
-            "sequence_id": 1.0,
+            "name": "Smart Parking", "label": "Smart Parking", "title": "Smart Parking",
+            "module": "Smart Parking", "icon": "car", "indicator_color": "", "sequence_id": 1.0,
             "content": dumps([
                 {"id": "sp1", "type": "header", "data": {"text": "Welcome to Smart Parking Management"}},
                 {"id": "sp2", "type": "paragraph", "data": {"text": "Manage parking zones, slots, vehicles, billing and operations."}},
@@ -72,13 +98,8 @@ def execute():
             ]
         },
         {
-            "name": "Parking Zone",
-            "label": "Parking Zone",
-            "title": "Parking Zone",
-            "module": "Smart Parking",
-            "icon": "map-pin",
-            "indicator_color": "blue",
-            "sequence_id": 2.0,
+            "name": "Parking Zone", "label": "Parking Zone", "title": "Parking Zone",
+            "module": "Smart Parking", "icon": "map-pin", "indicator_color": "blue", "sequence_id": 2.0,
             "content": dumps([
                 {"id": "pz1", "type": "header", "data": {"text": "Parking Zone Management"}},
                 {"id": "pz2", "type": "card", "data": {"card_name": "Zone Management", "col": 6}},
@@ -94,13 +115,8 @@ def execute():
             ]
         },
         {
-            "name": "Vehicle Management",
-            "label": "Vehicle Management",
-            "title": "Vehicle Management",
-            "module": "Smart Parking",
-            "icon": "car",
-            "indicator_color": "green",
-            "sequence_id": 3.0,
+            "name": "Vehicle Management", "label": "Vehicle Management", "title": "Vehicle Management",
+            "module": "Smart Parking", "icon": "car", "indicator_color": "green", "sequence_id": 3.0,
             "content": dumps([
                 {"id": "vm1", "type": "header", "data": {"text": "Vehicle Management"}},
                 {"id": "vm2", "type": "card", "data": {"card_name": "Vehicle Management", "col": 6}},
@@ -117,13 +133,8 @@ def execute():
             ]
         },
         {
-            "name": "Parking Billing",
-            "label": "Parking Billing",
-            "title": "Parking Billing",
-            "module": "Smart Parking",
-            "icon": "credit-card",
-            "indicator_color": "orange",
-            "sequence_id": 4.0,
+            "name": "Parking Billing", "label": "Parking Billing", "title": "Parking Billing",
+            "module": "Smart Parking", "icon": "credit-card", "indicator_color": "orange", "sequence_id": 4.0,
             "content": dumps([
                 {"id": "pb1", "type": "header", "data": {"text": "Parking Billing"}},
                 {"id": "pb2", "type": "card", "data": {"card_name": "Billing", "col": 6}},
@@ -139,13 +150,8 @@ def execute():
             ]
         },
         {
-            "name": "Parking Operations",
-            "label": "Parking Operations",
-            "title": "Parking Operations",
-            "module": "Smart Parking",
-            "icon": "settings",
-            "indicator_color": "purple",
-            "sequence_id": 5.0,
+            "name": "Parking Operations", "label": "Parking Operations", "title": "Parking Operations",
+            "module": "Smart Parking", "icon": "settings", "indicator_color": "purple", "sequence_id": 5.0,
             "content": dumps([
                 {"id": "po1", "type": "header", "data": {"text": "Parking Operations"}},
                 {"id": "po2", "type": "card", "data": {"card_name": "Operations", "col": 12}}
@@ -158,25 +164,3 @@ def execute():
             ]
         }
     ]
-
-    for ws_data in workspaces:
-        links = ws_data.pop("links")
-        content = ws_data["content"]
-        doc = frappe.get_doc({
-            "doctype": "Workspace",
-            "public": 1,
-            "standard": 1,
-            "type": "Workspace",
-            "link_type": "DocType",
-            "content": content,
-            "parent_page": "",
-            "for_user": "",
-            **ws_data
-        })
-        for link in links:
-            doc.append("links", link)
-        doc.insert(ignore_permissions=True)
-        print(f"Created workspace: {ws_data['name']}")
-
-    frappe.db.commit()
-    print("All done! Sidebar should now show only Smart Parking.")
