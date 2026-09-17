@@ -12,8 +12,8 @@ app_version = "1.0.0"
 required_apps = ["frappe", "erpnext"]
 
 # Asset Configuration
-app_include_js = "/assets/smart_parking/js/smart_parking.min.js"
-app_include_css = "/assets/smart_parking/css/smart_parking.min.css"
+app_include_js = "/assets/smart_parking/js/smart_parking.js"
+app_include_css = "/assets/smart_parking/css/smart_parking.css"
 
 # Portal Configuration
 portal_menu_items = [
