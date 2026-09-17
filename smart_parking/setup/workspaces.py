@@ -2,13 +2,11 @@ import frappe
 from json import dumps
 
 def execute():
-    """Delete and recreate all Smart Parking workspaces with proper links."""
+    """Delete and recreate all workspaces under Smart Parking module for proper sidebar grouping."""
 
-    # Delete existing workspaces
     for name in ["Smart Parking", "Parking Zone", "Vehicle Management", "Parking Billing", "Parking Operations"]:
         if frappe.db.exists("Workspace", name):
             frappe.delete_doc("Workspace", name, ignore_permissions=True)
-            print(f"Deleted: {name}")
 
     workspaces = [
         {
@@ -56,7 +54,7 @@ def execute():
             "name": "Parking Zone",
             "label": "Parking Zone",
             "title": "Parking Zone",
-            "module": "Parking Zone",
+            "module": "Smart Parking",
             "icon": "map-pin",
             "indicator_color": "blue",
             "sequence_id": 2.0,
@@ -78,7 +76,7 @@ def execute():
             "name": "Vehicle Management",
             "label": "Vehicle Management",
             "title": "Vehicle Management",
-            "module": "Vehicle Management",
+            "module": "Smart Parking",
             "icon": "car",
             "indicator_color": "green",
             "sequence_id": 3.0,
@@ -101,7 +99,7 @@ def execute():
             "name": "Parking Billing",
             "label": "Parking Billing",
             "title": "Parking Billing",
-            "module": "Parking Billing",
+            "module": "Smart Parking",
             "icon": "credit-card",
             "indicator_color": "orange",
             "sequence_id": 4.0,
@@ -123,7 +121,7 @@ def execute():
             "name": "Parking Operations",
             "label": "Parking Operations",
             "title": "Parking Operations",
-            "module": "Parking Operations",
+            "module": "Smart Parking",
             "icon": "settings",
             "indicator_color": "purple",
             "sequence_id": 5.0,
@@ -143,7 +141,6 @@ def execute():
     for ws_data in workspaces:
         links = ws_data.pop("links")
         content = ws_data["content"]
-
         doc = frappe.get_doc({
             "doctype": "Workspace",
             "public": 1,
@@ -155,12 +152,10 @@ def execute():
             "for_user": "",
             **ws_data
         })
-
         for link in links:
             doc.append("links", link)
-
         doc.insert(ignore_permissions=True)
-        print(f"Created: {ws_data['name']} with {len(links)} links")
+        print(f"Created: {ws_data['name']}")
 
     frappe.db.commit()
-    print("All 5 workspaces recreated successfully!")
+    print("All workspaces created under Smart Parking module!")
