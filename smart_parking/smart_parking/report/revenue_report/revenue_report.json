@@ -5,11 +5,11 @@
  "is_standard": "Yes",
  "modified": "2026-01-01 00:00:00.000000",
  "modified_by": "Administrator",
- "module": "Smart Parking",
- "name": "Slot Occupancy Report",
+ "module": "Parking Billing",
+ "name": "Revenue Report",
  "owner": "Administrator",
- "ref_doctype": "Parking Zone",
- "report_name": "Slot Occupancy Report",
+ "ref_doctype": "Parking Payment",
+ "report_name": "Revenue Report",
  "report_type": "Script Report",
  "roles": [
   {

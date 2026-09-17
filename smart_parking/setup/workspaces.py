@@ -2,7 +2,13 @@ import frappe
 from json import dumps
 
 def execute():
-    """Recreate all workspaces under Smart Parking module."""
+    """Fix sidebar: delete extra Module Defs and recreate workspaces."""
+
+    # Delete extra Module Defs so they don't create separate sidebar entries
+    for mod_name in ["Parking Zone", "Vehicle Management", "Parking Billing", "Parking Operations"]:
+        if frappe.db.exists("Module Def", mod_name):
+            frappe.delete_doc("Module Def", mod_name, ignore_permissions=True)
+            print(f"Deleted Module Def: {mod_name}")
 
     # Delete existing workspaces
     for name in ["Smart Parking", "Parking Zone", "Vehicle Management", "Parking Billing", "Parking Operations"]:
@@ -159,4 +165,4 @@ def execute():
         print(f"Created: {ws_data['name']}")
 
     frappe.db.commit()
-    print("All workspaces recreated under Smart Parking module!")
+    print("Done!")

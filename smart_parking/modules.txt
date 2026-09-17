@@ -1,5 +1,1 @@
-Parking Zone
-Vehicle Management
-Parking Billing
-Parking Operations
 Smart Parking
