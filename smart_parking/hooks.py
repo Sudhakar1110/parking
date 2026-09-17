@@ -34,7 +34,6 @@ fixtures = [
         ]]],
     },
     "Custom Field",
-    "Property Setter",
 ]
 
 # Custom Roles
