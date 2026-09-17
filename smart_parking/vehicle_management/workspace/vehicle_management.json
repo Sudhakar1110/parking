@@ -14,7 +14,15 @@
  "is_hidden": 0,
  "label": "Vehicle Management",
  "link_type": "DocType",
- "links": [],
+ "links": [
+  {"type": "Card Break", "label": "Vehicle Management", "icon": "database"},
+  {"type": "Link", "link_type": "DocType", "link_to": "Vehicle", "label": "Vehicle", "onboard": 0, "is_query_report": 0},
+  {"type": "Link", "link_type": "DocType", "link_to": "Vehicle Entry", "label": "Vehicle Entry", "onboard": 0, "is_query_report": 0},
+  {"type": "Link", "link_type": "DocType", "link_to": "Parking Reservation", "label": "Parking Reservation", "onboard": 0, "is_query_report": 0},
+  {"type": "Link", "link_type": "DocType", "link_to": "Parking Incident", "label": "Parking Incident", "onboard": 0, "is_query_report": 0},
+  {"type": "Card Break", "label": "Reports", "icon": "list"},
+  {"type": "Link", "link_type": "Report", "link_to": "Vehicle Entry Register", "label": "Vehicle Entry Register", "onboard": 0, "is_query_report": 1}
+ ],
  "modified": "2026-01-01 00:00:00.000000",
  "modified_by": "Administrator",
  "module": "Vehicle Management",
@@ -27,16 +35,6 @@
  "roles": [],
  "sequence_id": 3.0,
  "shortcuts": [],
- "sidebar_items": [
-  {"child": 0, "collapsible": 1, "default_workspace": 0, "icon": "car", "indent": 0, "keep_closed": 0, "label": "Vehicle Management", "link_to": "Vehicle Management", "link_type": "Workspace", "open_in_new_tab": 0, "show_arrow": 0, "type": "Link"},
-  {"child": 0, "collapsible": 1, "default_workspace": 0, "icon": "database", "indent": 1, "keep_closed": 0, "label": "Vehicle Management", "link_type": "DocType", "open_in_new_tab": 0, "show_arrow": 0, "type": "Section Break"},
-  {"child": 1, "collapsible": 1, "default_workspace": 0, "indent": 0, "keep_closed": 0, "label": "Vehicle", "link_to": "Vehicle", "link_type": "DocType", "open_in_new_tab": 0, "show_arrow": 0, "type": "Link"},
-  {"child": 1, "collapsible": 1, "default_workspace": 0, "indent": 0, "keep_closed": 0, "label": "Vehicle Entry", "link_to": "Vehicle Entry", "link_type": "DocType", "open_in_new_tab": 0, "show_arrow": 0, "type": "Link"},
-  {"child": 1, "collapsible": 1, "default_workspace": 0, "indent": 0, "keep_closed": 0, "label": "Parking Reservation", "link_to": "Parking Reservation", "link_type": "DocType", "open_in_new_tab": 0, "show_arrow": 0, "type": "Link"},
-  {"child": 1, "collapsible": 1, "default_workspace": 0, "indent": 0, "keep_closed": 0, "label": "Parking Incident", "link_to": "Parking Incident", "link_type": "DocType", "open_in_new_tab": 0, "show_arrow": 0, "type": "Link"},
-  {"child": 0, "collapsible": 1, "default_workspace": 0, "icon": "sheet", "indent": 1, "keep_closed": 0, "label": "Reports", "link_type": "DocType", "open_in_new_tab": 0, "show_arrow": 0, "type": "Section Break"},
-  {"child": 1, "collapsible": 1, "default_workspace": 0, "indent": 0, "keep_closed": 0, "label": "Vehicle Entry Register", "link_to": "Vehicle Entry Register", "link_type": "Report", "open_in_new_tab": 0, "show_arrow": 0, "type": "Link"}
- ],
  "standard": 1,
  "title": "Vehicle Management",
  "type": "Workspace"
