@@ -1,36 +1,37 @@
 import frappe
 from json import dumps
 
+
 def execute():
-    """Fix sidebar by force-updating everything via SQL and clearing caches."""
+    """Fix sidebar by updating module references and recreating workspaces."""
+
+    old_modules = ["Parking Zone", "Vehicle Management", "Parking Billing", "Parking Operations"]
 
     # Step 1: Update ALL references via SQL
-    for mod_name in ["Parking Zone", "Vehicle Management", "Parking Billing", "Parking Operations"]:
-        frappe.db.sql("UPDATE `tabDocType` SET `module` = 'Smart Parking' WHERE `module` = %s", mod_name)
-        frappe.db.sql("UPDATE `tabReport` SET `module` = 'Smart Parking' WHERE `module` = %s", mod_name)
-        frappe.db.sql("UPDATE `tabNumber Card` SET `module` = 'Smart Parking' WHERE `module` = %s", mod_name)
-        frappe.db.sql("UPDATE `tabDashboard Chart` SET `module` = 'Smart Parking' WHERE `module` = %s", mod_name)
-        frappe.db.sql("UPDATE `tabWorkspace` SET `module` = 'Smart Parking' WHERE `module` = %s", mod_name)
-        frappe.db.sql("UPDATE `tabDocType` SET `module` = 'Smart Parking' WHERE `module` = %s", mod_name)
+    for mod_name in old_modules:
+        for table in ["tabDocType", "tabReport", "tabNumber Card", "tabDashboard Chart", "tabWorkspace"]:
+            try:
+                frappe.db.sql(f"UPDATE `{table}` SET `module` = 'Smart Parking' WHERE `module` = %s", mod_name)
+            except Exception:
+                pass
         print(f"Updated refs from '{mod_name}'")
 
-    # Step 2: Delete extra Module Defs using SQL (bypass link check)
-    for mod_name in ["Parking Zone", "Vehicle Management", "Parking Billing", "Parking Operations"]:
-        frappe.db.sql("DELETE FROM `tabModule Def` WHERE name = %s", mod_name)
-        print(f"Deleted Module Def: {mod_name}")
+    # Step 2: Delete extra Module Defs
+    for mod_name in old_modules:
+        try:
+            frappe.db.sql("DELETE FROM `tabModule Def` WHERE name = %s", mod_name)
+            print(f"Deleted Module Def: {mod_name}")
+        except Exception as e:
+            print(f"Could not delete Module Def '{mod_name}': {e}")
 
-    # Step 3: Delete Sidebar entries for old modules
-    frappe.db.sql("DELETE FROM `tabSidebar` WHERE module IN ('Parking Zone', 'Vehicle Management', 'Parking Billing', 'Parking Operations')")
-    frappe.db.sql("DELETE FROM `tabSidebar Item` WHERE parent IN (SELECT name FROM `tabSidebar` WHERE module IN ('Parking Zone', 'Vehicle Management', 'Parking Billing', 'Parking Operations'))")
     frappe.db.commit()
-    print("Cleaned up Sidebar entries")
 
-    # Step 4: Delete existing workspaces
+    # Step 3: Delete existing workspaces
     for name in ["Smart Parking", "Parking Zone", "Vehicle Management", "Parking Billing", "Parking Operations"]:
         if frappe.db.exists("Workspace", name):
             frappe.delete_doc("Workspace", name, ignore_permissions=True)
 
-    # Step 5: Create all workspaces under Smart Parking
+    # Step 4: Create all workspaces under Smart Parking
     all_ws = _get_workspace_data()
     for ws_data in all_ws:
         links = ws_data.pop("links")
@@ -53,7 +54,7 @@ def execute():
 
     frappe.db.commit()
 
-    # Step 6: Clear ALL caches
+    # Step 5: Clear ALL caches
     frappe.clear_cache()
     print("Cleared all caches")
     print("DONE! Hard refresh browser with Ctrl+Shift+R")
