@@ -67,6 +67,7 @@
     "module":  "Parking Zone",
     "module_onboarding":  "",
     "name":  "Parking Zone",
+    "parent_page":  "Smart Parking",
     "number_cards":  [
 
                      ],
