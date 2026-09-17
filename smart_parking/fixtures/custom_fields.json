@@ -1,3 +1,3 @@
 [
- {"doctype": "Custom Field", "dt": "Customer", "fieldname": "parking_customer_id", "fieldtype": "Data", "label": "Parking Customer ID", "insert_after": "", "unique": 0, "read_only": 1, "is_custom_field": 1}
+ {"doctype": "Custom Field", "dt": "Customer", "fieldname": "parking_customer_id", "fieldtype": "Data", "label": "Parking Customer ID", "insert_after": "", "unique": 0, "read_only": 1, "is_custom_field": 1, "name": "Customer-parking_customer_id"}
 ]
