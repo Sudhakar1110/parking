@@ -2,19 +2,7 @@ import frappe
 from json import dumps
 
 def execute():
-    """Fix sidebar: hide other Module Defs, recreate workspaces under Smart Parking."""
-
-    # Hide other Module Defs from sidebar
-    for mod_name in ["Parking Zone", "Vehicle Management", "Parking Billing", "Parking Operations"]:
-        if frappe.db.exists("Module Def", mod_name):
-            frappe.db.set_value("Module Def", mod_name, "is_hidden", 1)
-            frappe.db.commit()
-            print(f"Hidden Module Def: {mod_name}")
-
-    # Ensure Smart Parking Module Def is visible
-    if frappe.db.exists("Module Def", "Smart Parking"):
-        frappe.db.set_value("Module Def", "Smart Parking", "is_hidden", 0)
-        frappe.db.commit()
+    """Recreate all workspaces under Smart Parking module."""
 
     # Delete existing workspaces
     for name in ["Smart Parking", "Parking Zone", "Vehicle Management", "Parking Billing", "Parking Operations"]:
@@ -171,4 +159,4 @@ def execute():
         print(f"Created: {ws_data['name']}")
 
     frappe.db.commit()
-    print("Done! All workspaces under Smart Parking, other modules hidden from sidebar.")
+    print("All workspaces recreated under Smart Parking module!")
