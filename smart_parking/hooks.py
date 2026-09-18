@@ -90,5 +90,4 @@ jinja = {
     "filters": [],
 }
 
-# After Install
-after_install = "smart_parking.setup.workspaces.execute"
+

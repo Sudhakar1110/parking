@@ -20,9 +20,8 @@
     "owner_phone",
     "owner_email",
     "section_break_notes",
-    "description",
-    "amended_from"
-  ],
+        "description"
+    ],
   "fields": [
     {
       "fieldname": "naming_series",
@@ -117,15 +116,6 @@
       "fieldname": "description",
       "fieldtype": "Small Text",
       "label": "Description"
-    },
-    {
-      "fieldname": "amended_from",
-      "fieldtype": "Link",
-      "label": "Amended From",
-      "no_copy": 1,
-      "options": "Vehicle",
-      "print_hide": 1,
-      "read_only": 1
     }
   ],
   "index_web_pages_for_search": 1,
