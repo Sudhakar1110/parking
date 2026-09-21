@@ -1,0 +1,16 @@
+{
+ "creation": "2026-01-01 00:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Notification",
+ "enabled": 1,
+ "event": "Submit",
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Smart Parking",
+ "name": "Payment Received Notification",
+ "owner": "Administrator",
+ "recipients": [{"receiver_by_document_type": "User", "receiver_by_role": "Parking Manager"}],
+ "subject": "Payment Received - {{ doc.name }}",
+ "document_type": "Parking Payment",
+ "message": "<p>Payment received successfully.</p><p><strong>Payment ID:</strong> {{ doc.name }}<br><strong>Amount:</strong> {{ frappe.format_amount(doc.amount_paid, doc.currency) }}<br><strong>Vehicle:</strong> {{ doc.vehicle }}<br><strong>Zone:</strong> {{ doc.zone }}<br><strong>Date:</strong> {{ frappe.format_date(doc.payment_date) }}</p>"
+}

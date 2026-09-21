@@ -1,0 +1,17 @@
+{
+ "creation": "2026-01-01 00:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Notification",
+ "enabled": 1,
+ "event": "Method",
+ "method": "smart_parking.tasks.check_overdue_vehicles",
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Smart Parking",
+ "name": "Vehicle Overdue Alert",
+ "owner": "Administrator",
+ "recipients": [{"receiver_by_document_type": "User", "receiver_by_role": "Parking Manager"}],
+ "subject": "Overdue Vehicle Alert",
+ "document_type": "Vehicle Entry",
+ "message": "<p>Vehicle {{ doc.vehicle }} has been parked for an extended period.</p><p>Entry: {{ doc.entry_time }}<br>Zone: {{ doc.zone }}<br>Slot: {{ doc.slot }}</p><p>Please take action.</p>"
+}

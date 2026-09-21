@@ -1,0 +1,276 @@
+{
+  "actions": [],
+  "allow_rename": 1,
+  "autoname": "naming_series:",
+  "creation": "2026-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "naming_series",
+    "zone_name",
+    "zone_code",
+    "column_break_1",
+    "is_active",
+    "zone_type",
+    "section_break_location",
+    "address",
+    "city",
+    "column_break_location",
+    "state",
+    "pincode",
+    "section_break_capacity",
+    "total_slots",
+    "occupied_slots",
+    "reserved_slots",
+    "column_break_capacity",
+    "available_slots",
+    "occupancy_percentage",
+    "alert_threshold",
+    "section_break_fee",
+    "fee_structure",
+    "section_break_settings",
+    "max_duration_hours",
+    "operating_hours_start",
+    "column_break_settings",
+    "operating_hours_end",
+        "description"
+    ],
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "Series",
+      "options": "PZ-.YYYY.-.####",
+      "reqd": 1,
+      "set_only_once": 1
+    },
+    {
+      "fieldname": "zone_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Zone Name",
+      "reqd": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "zone_code",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Zone Code",
+      "unique": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "1",
+      "fieldname": "is_active",
+      "fieldtype": "Check",
+      "in_list_view": 1,
+      "label": "Is Active"
+    },
+    {
+      "default": "Outdoor",
+      "fieldname": "zone_type",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Zone Type",
+      "options": "Outdoor\nCovered\nMulti-Story\nBasement\nValet"
+    },
+    {
+      "fieldname": "section_break_location",
+      "fieldtype": "Section Break",
+      "label": "Location"
+    },
+    {
+      "fieldname": "address",
+      "fieldtype": "Small Text",
+      "label": "Address"
+    },
+    {
+      "fieldname": "city",
+      "fieldtype": "Data",
+      "in_standard_filter": 1,
+      "label": "City"
+    },
+    {
+      "fieldname": "column_break_location",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "state",
+      "fieldtype": "Data",
+      "label": "State"
+    },
+    {
+      "fieldname": "pincode",
+      "fieldtype": "Data",
+      "label": "Pincode"
+    },
+    {
+      "fieldname": "section_break_capacity",
+      "fieldtype": "Section Break",
+      "label": "Capacity"
+    },
+    {
+      "default": "0",
+      "fieldname": "total_slots",
+      "fieldtype": "Int",
+      "in_list_view": 1,
+      "label": "Total Slots",
+      "read_only": 1
+    },
+    {
+      "default": "0",
+      "fieldname": "occupied_slots",
+      "fieldtype": "Int",
+      "in_list_view": 1,
+      "label": "Occupied Slots",
+      "read_only": 1
+    },
+    {
+      "default": "0",
+      "fieldname": "reserved_slots",
+      "fieldtype": "Int",
+      "label": "Reserved Slots",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_capacity",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "0",
+      "fieldname": "available_slots",
+      "fieldtype": "Int",
+      "in_list_view": 1,
+      "label": "Available Slots",
+      "read_only": 1
+    },
+    {
+      "default": "0",
+      "fieldname": "occupancy_percentage",
+      "fieldtype": "Percent",
+      "label": "Occupancy %",
+      "read_only": 1
+    },
+    {
+      "default": "90",
+      "fieldname": "alert_threshold",
+      "fieldtype": "Int",
+      "label": "Alert Threshold (%)"
+    },
+    {
+      "fieldname": "section_break_fee",
+      "fieldtype": "Section Break",
+      "label": "Fee Configuration"
+    },
+    {
+      "fieldname": "fee_structure",
+      "fieldtype": "Link",
+      "label": "Default Fee Structure",
+      "options": "Parking Fee Structure"
+    },
+    {
+      "fieldname": "section_break_settings",
+      "fieldtype": "Section Break",
+      "label": "Settings"
+    },
+    {
+      "default": "24",
+      "fieldname": "max_duration_hours",
+      "fieldtype": "Int",
+      "label": "Max Parking Duration (Hours)"
+    },
+    {
+      "default": "00:00:00",
+      "fieldname": "operating_hours_start",
+      "fieldtype": "Time",
+      "label": "Operating Hours Start"
+    },
+    {
+      "fieldname": "column_break_settings",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "23:59:59",
+      "fieldname": "operating_hours_end",
+      "fieldtype": "Time",
+      "label": "Operating Hours End"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Small Text",
+      "label": "Description"
+    }
+  ],
+  "index_web_pages_for_search": 1,
+  "is_submittable": 0,
+  "links": [
+    {
+      "link_doctype": "Parking Slot",
+      "link_fieldname": "zone"
+    },
+    {
+      "link_doctype": "Vehicle Entry",
+      "link_fieldname": "zone"
+    },
+    {
+      "link_doctype": "Parking Reservation",
+      "link_fieldname": "zone"
+    },
+    {
+      "link_doctype": "Parking Fee Structure",
+      "link_fieldname": "zone"
+    }
+  ],
+  "modified": "2026-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Smart Parking",
+  "name": "Parking Zone",
+  "naming_rule": "By \"naming_series\" field",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "role": "Parking Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "report": 1,
+      "export": 1,
+      "import": 1
+    },
+    {
+      "role": "Parking Supervisor",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "report": 1,
+      "export": 1
+    },
+    {
+      "role": "Parking Attendant",
+      "read": 1,
+      "report": 1
+    },
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "report": 1,
+      "export": 1,
+      "import": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": [],
+  "title_field": "zone_name",
+  "track_changes": 1
+}

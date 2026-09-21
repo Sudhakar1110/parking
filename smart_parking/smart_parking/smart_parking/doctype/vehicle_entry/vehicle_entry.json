@@ -1,0 +1,264 @@
+{
+  "actions": [],
+  "allow_amend": 1,
+  "autoname": "naming_series:",
+  "creation": "2026-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "naming_series",
+    "vehicle",
+    "license_plate_display",
+    "column_break_1",
+    "vehicle_type",
+    "vehicle_color",
+    "section_break_entry",
+    "zone",
+    "slot",
+    "entry_time",
+    "column_break_entry",
+    "exit_time",
+    "duration_hours",
+    "section_break_fee",
+    "parking_fee",
+    "estimated_fee",
+    "column_break_fee",
+    "fee_status",
+    "section_break_tracking",
+    "purpose",
+    "remarks",
+    "column_break_tracking",
+    "created_by_attendant",
+    "amended_from"
+  ],
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "Series",
+      "options": "VE-.YYYY.MM.DD.-.#####",
+      "reqd": 1,
+      "set_only_once": 1
+    },
+    {
+      "fieldname": "vehicle",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Vehicle",
+      "options": "Vehicle",
+      "reqd": 1
+    },
+    {
+      "fieldname": "license_plate_display",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "License Plate",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "vehicle_type",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Vehicle Type",
+      "read_only": 1
+    },
+    {
+      "fieldname": "vehicle_color",
+      "fieldtype": "Data",
+      "label": "Color",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_break_entry",
+      "fieldtype": "Section Break",
+      "label": "Entry / Exit Details"
+    },
+    {
+      "fieldname": "zone",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Parking Zone",
+      "options": "Parking Zone",
+      "reqd": 1
+    },
+    {
+      "fieldname": "slot",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Parking Slot",
+      "options": "Parking Slot"
+    },
+    {
+      "default": "Now",
+      "fieldname": "entry_time",
+      "fieldtype": "Datetime",
+      "in_list_view": 1,
+      "label": "Entry Time",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_entry",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "exit_time",
+      "fieldtype": "Datetime",
+      "in_list_view": 1,
+      "label": "Exit Time"
+    },
+    {
+      "fieldname": "duration_hours",
+      "fieldtype": "Float",
+      "label": "Duration (Hours)",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_break_fee",
+      "fieldtype": "Section Break",
+      "label": "Fee Details"
+    },
+    {
+      "fieldname": "parking_fee",
+      "fieldtype": "Currency",
+      "in_list_view": 1,
+      "label": "Parking Fee",
+      "read_only": 1
+    },
+    {
+      "fieldname": "estimated_fee",
+      "fieldtype": "Currency",
+      "label": "Estimated Fee",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_fee",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "Pending",
+      "fieldname": "fee_status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Fee Status",
+      "options": "Pending\nPaid\nWaived\nOverdue",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_break_tracking",
+      "fieldtype": "Section Break",
+      "label": "Additional Info"
+    },
+    {
+      "default": "General",
+      "fieldname": "purpose",
+      "fieldtype": "Select",
+      "label": "Purpose",
+      "options": "General\nVisitor\nDelivery\nEmployee\nContractor\nEvent"
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Small Text",
+      "label": "Remarks"
+    },
+    {
+      "fieldname": "column_break_tracking",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "0",
+      "fieldname": "created_by_attendant",
+      "fieldtype": "Check",
+      "label": "Created by Attendant"
+    },
+    {
+      "fieldname": "amended_from",
+      "fieldtype": "Link",
+      "label": "Amended From",
+      "no_copy": 1,
+      "options": "Vehicle Entry",
+      "print_hide": 1,
+      "read_only": 1
+    }
+  ],
+  "index_web_pages_for_search": 1,
+  "is_submittable": 1,
+  "links": [
+    {
+      "link_doctype": "Parking Fee Entry",
+      "link_fieldname": "vehicle_entry"
+    },
+    {
+      "link_doctype": "Parking Payment",
+      "link_fieldname": "vehicle_entry"
+    }
+  ],
+  "modified": "2026-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Smart Parking",
+  "name": "Vehicle Entry",
+  "naming_rule": "By \"naming_series\" field",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "role": "Parking Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1,
+      "delete": 1,
+      "report": 1,
+      "export": 1,
+      "import": 1
+    },
+    {
+      "role": "Parking Attendant",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "submit": 1,
+      "cancel": 1,
+      "report": 1,
+      "export": 1
+    },
+    {
+      "role": "Parking Supervisor",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1,
+      "report": 1,
+      "export": 1
+    },
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1,
+      "delete": 1,
+      "report": 1,
+      "export": 1,
+      "import": 1
+    }
+  ],
+  "search_fields": "vehicle,zone,slot",
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": [],
+  "title_field": "vehicle",
+  "track_changes": 1
+}

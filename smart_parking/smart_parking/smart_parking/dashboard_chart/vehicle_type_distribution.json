@@ -1,0 +1,20 @@
+{
+ "creation": "2026-01-01 00:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart",
+ "document_type": "Vehicle Entry",
+ "field_x": "vehicle_type",
+ "filters_json": "[[\"Vehicle Entry\",\"docstatus\",\"=\",1]]",
+ "group_by_field": "vehicle_type",
+ "group_by_type": "Count",
+ "is_standard": "Yes",
+ "label": "Vehicle Type Distribution",
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Smart Parking",
+ "name": "Vehicle Type Distribution",
+ "owner": "Administrator",
+ "time_interval": "Monthly",
+ "type": "Donut",
+ "width": "Half"
+}

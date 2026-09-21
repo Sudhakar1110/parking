@@ -1,0 +1,30 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<div class="my-vehicles">
+    <h1>My Vehicles</h1>
+
+    {% if vehicles %}
+    <div class="row">
+        {% for vehicle in vehicles %}
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ vehicle.license_plate }}</h5>
+                    <p class="card-text">
+                        {{ vehicle.vehicle_name or '' }}<br>
+                        <span class="badge badge-info">{{ vehicle.vehicle_type }}</span>
+                        {% if vehicle.make %}<br>{{ vehicle.make }} {{ vehicle.model }}{% endif %}
+                        {% if vehicle.color %}<br>Color: {{ vehicle.color }}{% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p class="text-muted">No vehicles registered.</p>
+    <a href="/app/vehicle/new" class="btn btn-primary">Register Vehicle</a>
+    {% endif %}
+</div>
+{% endblock %}

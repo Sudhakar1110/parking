@@ -1,0 +1,19 @@
+{
+ "creation": "2026-01-01 00:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Number Card",
+ "filters_json": "[[\"Parking Zone\",\"is_active\",\"=\",1]]",
+ "function": "Sum",
+ "is_standard": "Yes",
+ "label": "Available Slots",
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Smart Parking",
+ "name": "Available Slots",
+ "owner": "Administrator",
+ "report_field": "available_slots",
+ "report_method": "frappe.client.get_list",
+ "show_percentage_change": 0,
+ "time_interval": "Monthly",
+ "type": "Custom"
+}

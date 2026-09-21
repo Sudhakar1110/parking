@@ -1,0 +1,17 @@
+{
+ "creation": "2026-01-01 00:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Notification",
+ "enabled": 1,
+ "event": "Value Change",
+ "field_name": "occupied_slots",
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Smart Parking",
+ "name": "Parking Slot Occupancy Alert",
+ "owner": "Administrator",
+ "recipients": [{"receiver_by_document_type": "User", "receiver_by_role": "Parking Manager"}],
+ "subject": "High Occupancy Alert - {{ doc.zone_name }}",
+ "document_type": "Parking Zone",
+ "message": "<p>Zone '{{ doc.zone_name }}' has reached high occupancy.</p><p>Total Slots: {{ doc.total_slots }}<br>Occupied: {{ doc.occupied_slots }}<br>Available: {{ doc.available_slots }}</p><p>Please take appropriate action.</p>"
+}

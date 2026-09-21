@@ -1,0 +1,81 @@
+{
+ "creation": "2026-01-01 00:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Workflow",
+ "is_active": 0,
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Smart Parking",
+ "name": "Parking Reservation Approval",
+ "override_status_field": 1,
+ "owner": "Administrator",
+ "workflow_name": "Parking Reservation Approval",
+ "document_type": "Parking Reservation",
+ "workflow_state_field": "status",
+ "states": [
+  {
+   "state": "Draft",
+   "style": "Warning",
+   "allow_edit": "Parking Manager",
+   "doc_status": 0,
+   "is_initial_state": 1,
+   "action": "Save",
+   "next_state": "Confirmed"
+  },
+  {
+   "state": "Confirmed",
+   "style": "Success",
+   "allow_edit": "Parking Manager",
+   "doc_status": 1,
+   "next_state": "Completed"
+  },
+  {
+   "state": "Completed",
+   "style": "Primary",
+   "allow_edit": "Parking Manager",
+   "doc_status": 1
+  },
+  {
+   "state": "Cancelled",
+   "style": "Danger",
+   "allow_edit": "Parking Manager",
+   "doc_status": 1
+  },
+  {
+   "state": "Expired",
+   "style": "Danger",
+   "allow_edit": "Parking Manager",
+   "doc_status": 1
+  }
+ ],
+ "transitions": [
+  {
+   "state": "Draft",
+   "action": "Confirm",
+   "next_state": "Confirmed",
+   "allowed": "Parking Manager",
+   "allow_self_approval": 1
+  },
+  {
+   "state": "Confirmed",
+   "action": "Complete",
+   "next_state": "Completed",
+   "allowed": "Parking Manager",
+   "allow_self_approval": 1
+  },
+  {
+   "state": "Confirmed",
+   "action": "Cancel",
+   "next_state": "Cancelled",
+   "allowed": "Parking Manager",
+   "allow_self_approval": 1
+  },
+  {
+   "state": "Draft",
+   "action": "Cancel",
+   "next_state": "Cancelled",
+   "allowed": "Parking Manager",
+   "allow_self_approval": 1
+  }
+ ]
+}
