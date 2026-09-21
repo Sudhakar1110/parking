@@ -1,7 +1,7 @@
 {
  "app": "smart_parking",
  "charts": [],
- "content": "[{\"id\":\"pz1\",\"type\":\"header\",\"data\":{\"text\":\"Parking Zone Management\"}},{\"id\":\"pz2\",\"type\":\"card\",\"data\":{\"card_name\":\"Zone Management\",\"col\":6}},{\"id\":\"pz3\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":6}}]",
+ "content": "[{\"id\":\"pz1\",\"type\":\"header\",\"data\":{\"text\":\"Zone Management\"}},{\"id\":\"pz2\",\"type\":\"card\",\"data\":{\"card_name\":\"Zone Management\",\"col\":6}},{\"id\":\"pz3\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":6}}]",
  "creation": "2026-01-01 00:00:00.000000",
  "custom_blocks": [],
  "docstatus": 0,
@@ -12,7 +12,7 @@
  "idx": 0,
  "indicator_color": "blue",
  "is_hidden": 0,
- "label": "Parking Zone",
+ "label": "Zone Management",
  "link_type": "DocType",
  "links": [
   {"type": "Card Break", "label": "Zone Management", "icon": "database", "idx": 1, "link_count": 3},
@@ -26,7 +26,7 @@
  "modified_by": "Administrator",
  "module": "Smart Parking",
  "module_onboarding": "",
- "name": "Parking Zone",
+ "name": "Zone Management",
  "number_cards": [],
  "owner": "Administrator",
  "public": 1,
@@ -35,6 +35,6 @@
  "sequence_id": 2.0,
  "shortcuts": [],
  "standard": 1,
- "title": "Parking Zone",
+ "title": "Zone Management",
  "type": "Workspace"
 }
