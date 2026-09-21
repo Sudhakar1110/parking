@@ -1,0 +1,1 @@
+from smart_parking.setup import create_demo_data
