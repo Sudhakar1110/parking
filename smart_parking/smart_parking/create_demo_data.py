@@ -11,6 +11,7 @@ def execute():
 
     print("Creating demo data for Smart Parking...")
 
+    reset_all_slots()
     create_slot_types()
     create_zones()
     create_fee_structures()
@@ -30,6 +31,21 @@ def execute():
 
     frappe.db.commit()
     print("Demo data creation complete!")
+
+
+def reset_all_slots():
+    frappe.db.sql("""
+        UPDATE `tabParking Slot`
+        SET status = 'Available',
+            is_occupied = 0,
+            is_reserved = 0,
+            current_vehicle = NULL,
+            reserved_by = NULL,
+            reservation = NULL,
+            last_entry = NULL
+    """)
+    frappe.db.commit()
+    print("  Reset all parking slots to Available")
 
 
 def create_slot_types():
