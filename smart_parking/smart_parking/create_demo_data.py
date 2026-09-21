@@ -371,21 +371,21 @@ def create_slots():
 
 def create_vehicles():
     vehicles_data = [
-        {"license_plate": "TS09AA1234", "vehicle_type": "Car", "make": "Maruti Suzuki", "model": "Swift", "color": "White", "year_of_manufacture": 2023, "owner_name": "Rajesh Kumar", "owner_phone": "9876543210", "owner_email": "rajesh@example.com"},
-        {"license_plate": "TS09BB5678", "vehicle_type": "SUV", "make": "Hyundai", "model": "Creta", "color": "Black", "year_of_manufacture": 2024, "owner_name": "Priya Sharma", "owner_phone": "9876543211", "owner_email": "priya@example.com"},
-        {"license_plate": "TS09CC9012", "vehicle_type": "Car", "make": "Tata", "model": "Nexon", "color": "Blue", "year_of_manufacture": 2023, "owner_name": "Amit Patel", "owner_phone": "9876543212", "owner_email": "amit@example.com"},
-        {"license_plate": "TS09DD3456", "vehicle_type": "Motorcycle", "make": "Bajaj", "model": "Pulsar", "color": "Red", "year_of_manufacture": 2022, "owner_name": "Vikram Singh", "owner_phone": "9876543213", "owner_email": "vikram@example.com"},
-        {"license_plate": "TS09EE7890", "vehicle_type": "Car", "make": "Honda", "model": "City", "color": "Silver", "year_of_manufacture": 2024, "owner_name": "Sneha Reddy", "owner_phone": "9876543214", "owner_email": "sneha@example.com"},
-        {"license_plate": "TS09FF1122", "vehicle_type": "Van", "make": "Force", "model": "Traveller", "color": "White", "year_of_manufacture": 2021, "owner_name": "Ravi Transport Co", "owner_phone": "9876543215", "owner_email": "ravi@example.com"},
-        {"license_plate": "TS09GG3344", "vehicle_type": "Electric Car", "make": "Tata", "model": "Nexon EV", "color": "Teal", "year_of_manufacture": 2024, "owner_name": "Deepak Nair", "owner_phone": "9876543216", "owner_email": "deepak@example.com"},
-        {"license_plate": "TS09HH5566", "vehicle_type": "Truck", "make": "Tata", "model": "Ace", "color": "Yellow", "year_of_manufacture": 2020, "owner_name": "Logistics Plus", "owner_phone": "9876543217", "owner_email": "logistics@example.com"},
-        {"license_plate": "TS09II7788", "vehicle_type": "Car", "make": "Kia", "model": "Seltos", "color": "Grey", "year_of_manufacture": 2023, "owner_name": "Anitha Das", "owner_phone": "9876543218", "owner_email": "anitha@example.com"},
-        {"license_plate": "TS09JJ9900", "vehicle_type": "Bus", "make": "Ashok Leyland", "model": "Viking", "color": "Orange", "year_of_manufacture": 2019, "owner_name": "City Transport", "owner_phone": "9876543219", "owner_email": "citytransport@example.com"},
-        {"license_plate": "TS09KK1020", "vehicle_type": "SUV", "make": "Mahindra", "model": "XUV700", "color": "Deep Blue", "year_of_manufacture": 2024, "owner_name": "Suresh Babu", "owner_phone": "9876543220", "owner_email": "suresh@example.com"},
-        {"license_plate": "TS09LL3040", "vehicle_type": "Car", "make": "Toyota", "model": "Innova", "color": "Pearl White", "year_of_manufacture": 2022, "owner_name": "Kavitha Menon", "owner_phone": "9876543221", "owner_email": "kavitha@example.com"},
-        {"license_plate": "TS09MM5060", "vehicle_type": "Electric Motorcycle", "make": "Ola", "model": "S1 Pro", "color": "Matte Black", "year_of_manufacture": 2024, "owner_name": "Arjun Rao", "owner_phone": "9876543222", "owner_email": "arjun@example.com"},
-        {"license_plate": "TS09NN7080", "vehicle_type": "Car", "make": "Hyundai", "model": "i20", "color": "Polar White", "year_of_manufacture": 2023, "owner_name": "Meena Kumari", "owner_phone": "9876543223", "owner_email": "meena@example.com"},
-        {"license_plate": "TS09OO9101", "vehicle_type": "Motorcycle", "make": "Royal Enfield", "model": "Classic 350", "color": "Ash Black", "year_of_manufacture": 2022, "owner_name": "Karthik Iyer", "owner_phone": "9876543224", "owner_email": "karthik@example.com"},
+        {"license_plate": "TS09AA1234", "vehicle_type": "Car", "make": "Maruti Suzuki", "model": "Swift", "color": "White", "year_of_manufacture": 2023, "owner_name": "Rajesh Kumar", "owner_phone": "+91 9876543210", "owner_email": "rajesh@example.com"},
+        {"license_plate": "TS09BB5678", "vehicle_type": "SUV", "make": "Hyundai", "model": "Creta", "color": "Black", "year_of_manufacture": 2024, "owner_name": "Priya Sharma", "owner_phone": "+91 9876543211", "owner_email": "priya@example.com"},
+        {"license_plate": "TS09CC9012", "vehicle_type": "Car", "make": "Tata", "model": "Nexon", "color": "Blue", "year_of_manufacture": 2023, "owner_name": "Amit Patel", "owner_phone": "+91 9876543212", "owner_email": "amit@example.com"},
+        {"license_plate": "TS09DD3456", "vehicle_type": "Motorcycle", "make": "Bajaj", "model": "Pulsar", "color": "Red", "year_of_manufacture": 2022, "owner_name": "Vikram Singh", "owner_phone": "+91 9876543213", "owner_email": "vikram@example.com"},
+        {"license_plate": "TS09EE7890", "vehicle_type": "Car", "make": "Honda", "model": "City", "color": "Silver", "year_of_manufacture": 2024, "owner_name": "Sneha Reddy", "owner_phone": "+91 9876543214", "owner_email": "sneha@example.com"},
+        {"license_plate": "TS09FF1122", "vehicle_type": "Van", "make": "Force", "model": "Traveller", "color": "White", "year_of_manufacture": 2021, "owner_name": "Ravi Transport Co", "owner_phone": "+91 9876543215", "owner_email": "ravi@example.com"},
+        {"license_plate": "TS09GG3344", "vehicle_type": "Electric Car", "make": "Tata", "model": "Nexon EV", "color": "Teal", "year_of_manufacture": 2024, "owner_name": "Deepak Nair", "owner_phone": "+91 9876543216", "owner_email": "deepak@example.com"},
+        {"license_plate": "TS09HH5566", "vehicle_type": "Truck", "make": "Tata", "model": "Ace", "color": "Yellow", "year_of_manufacture": 2020, "owner_name": "Logistics Plus", "owner_phone": "+91 9876543217", "owner_email": "logistics@example.com"},
+        {"license_plate": "TS09II7788", "vehicle_type": "Car", "make": "Kia", "model": "Seltos", "color": "Grey", "year_of_manufacture": 2023, "owner_name": "Anitha Das", "owner_phone": "+91 9876543218", "owner_email": "anitha@example.com"},
+        {"license_plate": "TS09JJ9900", "vehicle_type": "Bus", "make": "Ashok Leyland", "model": "Viking", "color": "Orange", "year_of_manufacture": 2019, "owner_name": "City Transport", "owner_phone": "+91 9876543219", "owner_email": "citytransport@example.com"},
+        {"license_plate": "TS09KK1020", "vehicle_type": "SUV", "make": "Mahindra", "model": "XUV700", "color": "Deep Blue", "year_of_manufacture": 2024, "owner_name": "Suresh Babu", "owner_phone": "+91 9876543220", "owner_email": "suresh@example.com"},
+        {"license_plate": "TS09LL3040", "vehicle_type": "Car", "make": "Toyota", "model": "Innova", "color": "Pearl White", "year_of_manufacture": 2022, "owner_name": "Kavitha Menon", "owner_phone": "+91 9876543221", "owner_email": "kavitha@example.com"},
+        {"license_plate": "TS09MM5060", "vehicle_type": "Electric Motorcycle", "make": "Ola", "model": "S1 Pro", "color": "Matte Black", "year_of_manufacture": 2024, "owner_name": "Arjun Rao", "owner_phone": "+91 9876543222", "owner_email": "arjun@example.com"},
+        {"license_plate": "TS09NN7080", "vehicle_type": "Car", "make": "Hyundai", "model": "i20", "color": "Polar White", "year_of_manufacture": 2023, "owner_name": "Meena Kumari", "owner_phone": "+91 9876543223", "owner_email": "meena@example.com"},
+        {"license_plate": "TS09OO9101", "vehicle_type": "Motorcycle", "make": "Royal Enfield", "model": "Classic 350", "color": "Ash Black", "year_of_manufacture": 2022, "owner_name": "Karthik Iyer", "owner_phone": "+91 9876543224", "owner_email": "karthik@example.com"},
     ]
 
     for v in vehicles_data:
@@ -400,14 +400,14 @@ def create_vehicles():
 def create_staff():
     zones = frappe.get_all("Parking Zone", fields=["name"])
     staff_data = [
-        {"staff_name": "Ramesh Babu", "phone": "9800000001", "email": "ramesh@smartparking.com", "staff_type": "Manager", "date_of_joining": "2024-01-15"},
-        {"staff_name": "Suresh Kumar", "phone": "9800000002", "email": "suresh@smartparking.com", "staff_type": "Supervisor", "date_of_joining": "2024-02-01"},
-        {"staff_name": "Venkat Reddy", "phone": "9800000003", "email": "venkat@smartparking.com", "staff_type": "Attendant", "date_of_joining": "2024-03-10"},
-        {"staff_name": "Lakshmi Devi", "phone": "9800000004", "email": "lakshmi@smartparking.com", "staff_type": "Attendant", "date_of_joining": "2024-03-15"},
-        {"staff_name": "Prakash Raj", "phone": "9800000005", "email": "prakash@smartparking.com", "staff_type": "Security", "date_of_joining": "2024-01-20"},
-        {"staff_name": "Anand Sharma", "phone": "9800000006", "email": "anand@smartparking.com", "staff_type": "Technician", "date_of_joining": "2024-04-01"},
-        {"staff_name": "Divya Patel", "phone": "9800000007", "email": "divya@smartparking.com", "staff_type": "Supervisor", "date_of_joining": "2024-02-15"},
-        {"staff_name": "Mohammed Ali", "phone": "9800000008", "email": "mohammed@smartparking.com", "staff_type": "Attendant", "date_of_joining": "2024-05-01"},
+        {"staff_name": "Ramesh Babu", "phone": "+91 9800000001", "email": "ramesh@smartparking.com", "staff_type": "Manager", "date_of_joining": "2024-01-15"},
+        {"staff_name": "Suresh Kumar", "phone": "+91 9800000002", "email": "suresh@smartparking.com", "staff_type": "Supervisor", "date_of_joining": "2024-02-01"},
+        {"staff_name": "Venkat Reddy", "phone": "+91 9800000003", "email": "venkat@smartparking.com", "staff_type": "Attendant", "date_of_joining": "2024-03-10"},
+        {"staff_name": "Lakshmi Devi", "phone": "+91 9800000004", "email": "lakshmi@smartparking.com", "staff_type": "Attendant", "date_of_joining": "2024-03-15"},
+        {"staff_name": "Prakash Raj", "phone": "+91 9800000005", "email": "prakash@smartparking.com", "staff_type": "Security", "date_of_joining": "2024-01-20"},
+        {"staff_name": "Anand Sharma", "phone": "+91 9800000006", "email": "anand@smartparking.com", "staff_type": "Technician", "date_of_joining": "2024-04-01"},
+        {"staff_name": "Divya Patel", "phone": "+91 9800000007", "email": "divya@smartparking.com", "staff_type": "Supervisor", "date_of_joining": "2024-02-15"},
+        {"staff_name": "Mohammed Ali", "phone": "+91 9800000008", "email": "mohammed@smartparking.com", "staff_type": "Attendant", "date_of_joining": "2024-05-01"},
     ]
 
     for i, s in enumerate(staff_data):
