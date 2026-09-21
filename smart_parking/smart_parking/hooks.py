@@ -67,10 +67,6 @@ doc_events = {
         "on_submit": "smart_parking.utils.entry_exit.on_vehicle_entry_submit",
         "on_cancel": "smart_parking.utils.entry_exit.on_vehicle_entry_cancel",
     },
-    "Parking Reservation": {
-        "on_submit": "smart_parking.utils.reservations.on_reservation_submit",
-        "on_cancel": "smart_parking.utils.reservations.on_reservation_cancel",
-    },
     "Parking Payment": {
         "on_submit": "smart_parking.utils.billing.on_payment_submit",
     },
