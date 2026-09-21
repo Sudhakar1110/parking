@@ -371,22 +371,28 @@ def create_slots():
 
 
 def create_customers():
+    customer_group = frappe.db.get_value("Customer Group", {"is_group": 0}, "name")
+    territory = frappe.db.get_value("Territory", {"is_group": 0}, "name") or "India"
+    if not customer_group:
+        print("  ERROR: No non-group Customer Group found. Please create one first.")
+        return
+
     customers_data = [
-        {"customer_name": "Rajesh Kumar", "customer_type": "Individual", "customer_group": "Individual", "territory": "India"},
-        {"customer_name": "Priya Sharma", "customer_type": "Individual", "customer_group": "Individual", "territory": "India"},
-        {"customer_name": "Amit Patel", "customer_type": "Individual", "customer_group": "Individual", "territory": "India"},
-        {"customer_name": "Vikram Singh", "customer_type": "Individual", "customer_group": "Individual", "territory": "India"},
-        {"customer_name": "Sneha Reddy", "customer_type": "Individual", "customer_group": "Individual", "territory": "India"},
-        {"customer_name": "Ravi Transport Co", "customer_type": "Company", "customer_group": "All Customer Groups", "territory": "India"},
-        {"customer_name": "Deepak Nair", "customer_type": "Individual", "customer_group": "Individual", "territory": "India"},
-        {"customer_name": "Logistics Plus", "customer_type": "Company", "customer_group": "All Customer Groups", "territory": "India"},
-        {"customer_name": "Anitha Das", "customer_type": "Individual", "customer_group": "Individual", "territory": "India"},
-        {"customer_name": "City Transport", "customer_type": "Company", "customer_group": "All Customer Groups", "territory": "India"},
-        {"customer_name": "Suresh Babu", "customer_type": "Individual", "customer_group": "Individual", "territory": "India"},
-        {"customer_name": "Kavitha Menon", "customer_type": "Individual", "customer_group": "Individual", "territory": "India"},
-        {"customer_name": "Arjun Rao", "customer_type": "Individual", "customer_group": "Individual", "territory": "India"},
-        {"customer_name": "Meena Kumari", "customer_type": "Individual", "customer_group": "Individual", "territory": "India"},
-        {"customer_name": "Karthik Iyer", "customer_type": "Individual", "customer_group": "Individual", "territory": "India"},
+        {"customer_name": "Rajesh Kumar", "customer_type": "Individual", "customer_group": customer_group, "territory": territory},
+        {"customer_name": "Priya Sharma", "customer_type": "Individual", "customer_group": customer_group, "territory": territory},
+        {"customer_name": "Amit Patel", "customer_type": "Individual", "customer_group": customer_group, "territory": territory},
+        {"customer_name": "Vikram Singh", "customer_type": "Individual", "customer_group": customer_group, "territory": territory},
+        {"customer_name": "Sneha Reddy", "customer_type": "Individual", "customer_group": customer_group, "territory": territory},
+        {"customer_name": "Ravi Transport Co", "customer_type": "Company", "customer_group": customer_group, "territory": territory},
+        {"customer_name": "Deepak Nair", "customer_type": "Individual", "customer_group": customer_group, "territory": territory},
+        {"customer_name": "Logistics Plus", "customer_type": "Company", "customer_group": customer_group, "territory": territory},
+        {"customer_name": "Anitha Das", "customer_type": "Individual", "customer_group": customer_group, "territory": territory},
+        {"customer_name": "City Transport", "customer_type": "Company", "customer_group": customer_group, "territory": territory},
+        {"customer_name": "Suresh Babu", "customer_type": "Individual", "customer_group": customer_group, "territory": territory},
+        {"customer_name": "Kavitha Menon", "customer_type": "Individual", "customer_group": customer_group, "territory": territory},
+        {"customer_name": "Arjun Rao", "customer_type": "Individual", "customer_group": customer_group, "territory": territory},
+        {"customer_name": "Meena Kumari", "customer_type": "Individual", "customer_group": customer_group, "territory": territory},
+        {"customer_name": "Karthik Iyer", "customer_type": "Individual", "customer_group": customer_group, "territory": territory},
     ]
 
     for c in customers_data:
