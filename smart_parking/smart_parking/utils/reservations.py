@@ -11,14 +11,15 @@ def on_reservation_submit(doc, method=None):
     if doc.slot:
         slot_status = frappe.db.get_value("Parking Slot", doc.slot, ["is_occupied", "is_reserved"], as_dict=True)
         if slot_status.is_occupied:
-            frappe.throw("Cannot reserve: slot is currently occupied.")
+            frappe.print_error("Cannot reserve: slot is currently occupied.")
         if slot_status.is_reserved:
-            frappe.throw("Cannot reserve: slot is already reserved.")
+            frappe.print_error("Cannot reserve: slot is already reserved.")
 
         frappe.db.set_value("Parking Slot", doc.slot, {
             "is_reserved": 1,
             "reserved_by": doc.customer,
             "reservation": doc.name,
+            "status": "Reserved",
         })
 
     frappe.db.commit()
