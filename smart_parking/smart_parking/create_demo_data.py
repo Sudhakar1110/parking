@@ -5,7 +5,7 @@ import random
 
 def execute():
     """Create demo data for Smart Parking app.
-    Run: bench --site <site> execute smart_parking.setup.create_demo_data.execute
+    Run: bench --site <site> execute smart_parking.create_demo_data
     """
     frappe.only_for("System Manager")
 
