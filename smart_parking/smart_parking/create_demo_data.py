@@ -16,6 +16,7 @@ def execute():
     create_fee_structures()
     update_zone_fee_links()
     create_slots()
+    create_customers()
     create_vehicles()
     create_staff()
     create_shifts()
@@ -369,6 +370,36 @@ def create_slots():
     frappe.db.commit()
 
 
+def create_customers():
+    customers_data = [
+        {"customer_name": "Rajesh Kumar", "customer_type": "Individual", "customer_group": "Individual", "territory": "India"},
+        {"customer_name": "Priya Sharma", "customer_type": "Individual", "customer_group": "Individual", "territory": "India"},
+        {"customer_name": "Amit Patel", "customer_type": "Individual", "customer_group": "Individual", "territory": "India"},
+        {"customer_name": "Vikram Singh", "customer_type": "Individual", "customer_group": "Individual", "territory": "India"},
+        {"customer_name": "Sneha Reddy", "customer_type": "Individual", "customer_group": "Individual", "territory": "India"},
+        {"customer_name": "Ravi Transport Co", "customer_type": "Company", "customer_group": "All Customer Groups", "territory": "India"},
+        {"customer_name": "Deepak Nair", "customer_type": "Individual", "customer_group": "Individual", "territory": "India"},
+        {"customer_name": "Logistics Plus", "customer_type": "Company", "customer_group": "All Customer Groups", "territory": "India"},
+        {"customer_name": "Anitha Das", "customer_type": "Individual", "customer_group": "Individual", "territory": "India"},
+        {"customer_name": "City Transport", "customer_type": "Company", "customer_group": "All Customer Groups", "territory": "India"},
+        {"customer_name": "Suresh Babu", "customer_type": "Individual", "customer_group": "Individual", "territory": "India"},
+        {"customer_name": "Kavitha Menon", "customer_type": "Individual", "customer_group": "Individual", "territory": "India"},
+        {"customer_name": "Arjun Rao", "customer_type": "Individual", "customer_group": "Individual", "territory": "India"},
+        {"customer_name": "Meena Kumari", "customer_type": "Individual", "customer_group": "Individual", "territory": "India"},
+        {"customer_name": "Karthik Iyer", "customer_type": "Individual", "customer_group": "Individual", "territory": "India"},
+    ]
+
+    for c in customers_data:
+        if not frappe.db.exists("Customer", {"customer_name": c["customer_name"]}):
+            doc = frappe.get_doc({"doctype": "Customer", **c})
+            doc.insert(ignore_permissions=True)
+            print(f"  Created Customer: {c['customer_name']}")
+        else:
+            print(f"  Customer exists: {c['customer_name']}")
+
+    frappe.db.commit()
+
+
 def create_vehicles():
     vehicles_data = [
         {"license_plate": "TS09AA1234", "vehicle_type": "Car", "make": "Maruti Suzuki", "model": "Swift", "color": "White", "year_of_manufacture": 2023, "owner_name": "Rajesh Kumar", "owner_phone": "+91 9876543210", "owner_email": "rajesh@example.com"},
@@ -559,7 +590,7 @@ def create_reservations():
         try:
             doc = frappe.get_doc({
                 "doctype": "Parking Reservation",
-                "customer": customers[0].name,
+                "customer": customers[i % len(customers)].name,
                 "vehicle": v.name,
                 "vehicle_type": v.vehicle_type,
                 "zone": z.name,
@@ -633,10 +664,11 @@ def create_payments():
             "payment_method": random.choice(methods),
             "payment_date": today(),
             "reference_number": f"REF{random.randint(100000, 999999)}",
-            "docstatus": 1,
+            "create_sales_invoice": 0,
         })
         try:
             doc.insert(ignore_permissions=True)
+            doc.submit()
             frappe.db.commit()
             print(f"  Created Payment: {fe.name}")
         except Exception as ex:

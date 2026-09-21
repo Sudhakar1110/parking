@@ -4,7 +4,7 @@
  "creation": "2026-01-01 00:00:00.000000",
  "doctype": "DocType",
  "engine": "InnoDB",
- "field_order": ["naming_series","fee_entry","vehicle_entry","column_break_1","vehicle","zone","section_break_payment","amount_paid","payment_method","column_break_payment","payment_date","reference_number","section_break_customer","customer","customer_name","column_break_customer","customer_phone","customer_email","section_break_notes","remarks","amended_from"],
+ "field_order": ["naming_series","fee_entry","vehicle_entry","column_break_1","vehicle","zone","section_break_payment","amount_paid","payment_method","column_break_payment","payment_date","reference_number","section_break_customer","customer","customer_name","column_break_customer","customer_phone","customer_email","section_break_notes","remarks","section_break_integration","create_sales_invoice","amended_from"],
  "fields": [
   {"fieldname": "naming_series", "fieldtype": "Select", "label": "Series", "options": "PPAY-.YYYY.-.####", "reqd": 1, "set_only_once": 1},
   {"fieldname": "fee_entry", "fieldtype": "Link", "in_list_view": 1, "label": "Fee Entry", "options": "Parking Fee Entry"},
@@ -25,8 +25,10 @@
   {"fieldname": "customer_phone", "fieldtype": "Phone", "label": "Phone"},
   {"fieldname": "customer_email", "fieldtype": "Data", "label": "Email", "options": "Email"},
   {"fieldname": "section_break_notes", "fieldtype": "Section Break", "label": "Notes"},
-  {"fieldname": "remarks", "fieldtype": "Small Text", "label": "Remarks"},
-  {"fieldname": "amended_from", "fieldtype": "Link", "label": "Amended From", "no_copy": 1, "options": "Parking Payment", "print_hide": 1, "read_only": 1}
+   {"fieldname": "remarks", "fieldtype": "Small Text", "label": "Remarks"},
+   {"fieldname": "section_break_integration", "fieldtype": "Section Break", "label": "ERPNext Integration"},
+   {"default": "0", "fieldname": "create_sales_invoice", "fieldtype": "Check", "label": "Create Sales Invoice"},
+   {"fieldname": "amended_from", "fieldtype": "Link", "label": "Amended From", "no_copy": 1, "options": "Parking Payment", "print_hide": 1, "read_only": 1}
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,

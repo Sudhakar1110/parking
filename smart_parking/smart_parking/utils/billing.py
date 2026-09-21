@@ -12,7 +12,7 @@ def on_payment_submit(doc, method=None):
         frappe.db.set_value("Parking Fee Entry", doc.fee_entry, "fee_status", "Paid")
         frappe.db.set_value("Parking Fee Entry", doc.fee_entry, "payment", doc.name)
 
-    if doc.create_sales_invoice:
+    if getattr(doc, "create_sales_invoice", 0):
         create_sales_invoice_from_payment(doc)
 
     frappe.db.commit()
