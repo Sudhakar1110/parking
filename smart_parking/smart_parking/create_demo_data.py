@@ -1,11 +1,11 @@
 import frappe
-from frappe.utils import nowdate, add_days, add_hours, today, now_datetime, cint
+from frappe.utils import nowdate, add_days, today, now_datetime, cint, add_to_date
 import random
 
 
 def execute():
     """Create demo data for Smart Parking app.
-    Run: bench --site <site> execute smart_parking.create_demo_data
+    Run: bench --site <site> execute smart_parking.smart_parking.create_demo_data.execute
     """
     frappe.only_for("System Manager")
 
@@ -496,8 +496,8 @@ def create_vehicle_entries():
         z = zones[i % len(zones)]
         slot = slots[i % len(slots)].name if slots else None
 
-        entry_time = add_hours(now, -e["h_ago"])
-        exit_time = add_hours(entry_time, e["duration"]) if e["duration"] > 0 else None
+        entry_time = add_to_date(now, hours=-e["h_ago"])
+        exit_time = add_to_date(entry_time, hours=e["duration"]) if e["duration"] > 0 else None
 
         doc = frappe.get_doc({
             "doctype": "Vehicle Entry",
@@ -553,8 +553,8 @@ def create_reservations():
         if not slot:
             continue
 
-        start = add_hours(now, r["days_from_now"] * 24)
-        end = add_hours(start, r["duration"])
+        start = add_to_date(now, days=r["days_from_now"])
+        end = add_to_date(start, hours=r["duration"])
 
         try:
             doc = frappe.get_doc({

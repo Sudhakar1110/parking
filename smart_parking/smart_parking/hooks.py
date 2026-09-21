@@ -81,11 +81,6 @@ website_route_rules = [
     {"from_route": "/parking-portal/<path:app_path>", "to_route": "parking_portal"},
 ]
 
-# Bench Commands
-app_commands = {
-    "create-demo-data": "smart_parking.create_demo_data.execute",
-}
-
 # Jinja
 jinja = {
     "methods": [
