@@ -1,0 +1,48 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<div class="my-reservations">
+    <h1>My Reservations</h1>
+
+    {% if reservations %}
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Reservation ID</th>
+                    <th>Vehicle</th>
+                    <th>Zone</th>
+                    <th>Slot</th>
+                    <th>Start</th>
+                    <th>End</th>
+                    <th>Status</th>
+                    <th>Fee</th>
+                    <th>Payment</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for res in reservations %}
+                <tr>
+                    <td><a href="/app/parking-reservation/{{ res.name }}">{{ res.name }}</a></td>
+                    <td>{{ res.vehicle }}</td>
+                    <td>{{ res.zone }}</td>
+                    <td>{{ res.slot }}</td>
+                    <td>{{ frappe.format_datetime(res.start_time) }}</td>
+                    <td>{{ frappe.format_datetime(res.end_time) }}</td>
+                    <td>
+                        <span class="badge badge-{{ 'success' if res.status == 'Confirmed' else ('danger' if res.status == 'Cancelled' else 'warning') }}">
+                            {{ res.status }}
+                        </span>
+                    </td>
+                    <td>{{ frappe.format_amount(res.reservation_fee) }}</td>
+                    <td>{{ res.payment_status }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <p class="text-muted">No reservations found.</p>
+    {% endif %}
+</div>
+{% endblock %}

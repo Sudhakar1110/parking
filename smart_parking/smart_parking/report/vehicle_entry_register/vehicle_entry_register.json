@@ -1,0 +1,28 @@
+{
+ "creation": "2026-01-01 00:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Report",
+ "is_standard": "Yes",
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Smart Parking",
+ "name": "Vehicle Entry Register",
+ "owner": "Administrator",
+ "ref_doctype": "Vehicle Entry",
+ "report_name": "Vehicle Entry Register",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "Parking Manager"
+  },
+  {
+   "role": "Parking Attendant"
+  },
+  {
+   "role": "Parking Supervisor"
+  },
+  {
+   "role": "System Manager"
+  }
+ ]
+}

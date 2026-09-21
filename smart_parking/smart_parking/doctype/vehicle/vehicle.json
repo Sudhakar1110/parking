@@ -1,0 +1,183 @@
+{
+  "actions": [],
+  "autoname": "naming_series:",
+  "creation": "2026-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "naming_series",
+    "license_plate",
+    "vehicle_name",
+    "column_break_1",
+    "vehicle_type",
+    "make",
+    "model",
+    "section_break_details",
+    "color",
+    "year_of_manufacture",
+    "column_break_details",
+    "owner_name",
+    "owner_phone",
+    "owner_email",
+    "section_break_notes",
+        "description"
+    ],
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "Series",
+      "options": "VEH-.YYYY.-.####",
+      "reqd": 1,
+      "set_only_once": 1
+    },
+    {
+      "fieldname": "license_plate",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "License Plate",
+      "reqd": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "vehicle_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Vehicle Name"
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "Car",
+      "fieldname": "vehicle_type",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Vehicle Type",
+      "options": "Car\nSUV\nTruck\nMotorcycle\nVan\nBus\nElectric Car\nElectric Motorcycle\nBicycle\nOther",
+      "reqd": 1
+    },
+    {
+      "fieldname": "make",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Make / Brand"
+    },
+    {
+      "fieldname": "model",
+      "fieldtype": "Data",
+      "label": "Model"
+    },
+    {
+      "fieldname": "section_break_details",
+      "fieldtype": "Section Break",
+      "label": "Additional Details"
+    },
+    {
+      "fieldname": "color",
+      "fieldtype": "Data",
+      "label": "Color"
+    },
+    {
+      "fieldname": "year_of_manufacture",
+      "fieldtype": "Int",
+      "label": "Year"
+    },
+    {
+      "fieldname": "column_break_details",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "owner_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Owner Name"
+    },
+    {
+      "fieldname": "owner_phone",
+      "fieldtype": "Phone",
+      "label": "Owner Phone"
+    },
+    {
+      "fieldname": "owner_email",
+      "fieldtype": "Data",
+      "label": "Owner Email",
+      "options": "Email"
+    },
+    {
+      "fieldname": "section_break_notes",
+      "fieldtype": "Section Break",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Small Text",
+      "label": "Description"
+    }
+  ],
+  "index_web_pages_for_search": 1,
+  "is_submittable": 0,
+  "links": [
+    {
+      "link_doctype": "Vehicle Entry",
+      "link_fieldname": "vehicle"
+    },
+    {
+      "link_doctype": "Parking Reservation",
+      "link_fieldname": "vehicle"
+    }
+  ],
+  "modified": "2026-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Smart Parking",
+  "name": "Vehicle",
+  "naming_rule": "Expression",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "role": "Parking Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "report": 1,
+      "export": 1,
+      "import": 1
+    },
+    {
+      "role": "Parking Attendant",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "report": 1,
+      "export": 1
+    },
+    {
+      "role": "Parking Supervisor",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "report": 1,
+      "export": 1
+    },
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "report": 1,
+      "export": 1,
+      "import": 1
+    }
+  ],
+  "search_fields": "license_plate,vehicle_name,owner_name",
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": [],
+  "title_field": "license_plate",
+  "track_changes": 1
+}

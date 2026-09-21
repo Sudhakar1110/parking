@@ -1,0 +1,230 @@
+{
+  "actions": [],
+  "autoname": "naming_series:",
+  "creation": "2026-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "naming_series",
+    "slot_number",
+    "zone",
+    "column_break_1",
+    "slot_type",
+    "floor",
+    "section_break_status",
+    "status",
+    "is_active",
+    "is_occupied",
+    "column_break_status",
+    "is_reserved",
+    "current_vehicle",
+    "reserved_by",
+    "section_break_details",
+    "last_entry",
+    "reservation",
+    "column_break_details",
+    "latitude",
+    "longitude",
+    "section_break_notes",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "Series",
+      "options": "PS-.YYYY.-.#####",
+      "reqd": 1,
+      "set_only_once": 1
+    },
+    {
+      "fieldname": "slot_number",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Slot Number",
+      "reqd": 1
+    },
+    {
+      "fieldname": "zone",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Parking Zone",
+      "options": "Parking Zone",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "slot_type",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Slot Type",
+      "options": "Parking Slot Type"
+    },
+    {
+      "fieldname": "floor",
+      "fieldtype": "Data",
+      "label": "Floor / Level"
+    },
+    {
+      "fieldname": "section_break_status",
+      "fieldtype": "Section Break",
+      "label": "Status"
+    },
+    {
+      "default": "Available",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "Available\nOccupied\nReserved\nMaintenance",
+      "read_only": 1
+    },
+    {
+      "default": "1",
+      "fieldname": "is_active",
+      "fieldtype": "Check",
+      "label": "Is Active"
+    },
+    {
+      "default": "0",
+      "fieldname": "is_occupied",
+      "fieldtype": "Check",
+      "in_list_view": 1,
+      "label": "Is Occupied",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_status",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "0",
+      "fieldname": "is_reserved",
+      "fieldtype": "Check",
+      "label": "Is Reserved",
+      "read_only": 1
+    },
+    {
+      "fieldname": "current_vehicle",
+      "fieldtype": "Link",
+      "label": "Current Vehicle",
+      "options": "Vehicle",
+      "read_only": 1
+    },
+    {
+      "fieldname": "reserved_by",
+      "fieldtype": "Link",
+      "label": "Reserved By",
+      "options": "Customer",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_break_details",
+      "fieldtype": "Section Break",
+      "label": "Tracking"
+    },
+    {
+      "fieldname": "last_entry",
+      "fieldtype": "Link",
+      "label": "Last Vehicle Entry",
+      "options": "Vehicle Entry",
+      "read_only": 1
+    },
+    {
+      "fieldname": "reservation",
+      "fieldtype": "Link",
+      "label": "Active Reservation",
+      "options": "Parking Reservation",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_details",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "latitude",
+      "fieldtype": "Float",
+      "label": "Latitude"
+    },
+    {
+      "fieldname": "longitude",
+      "fieldtype": "Float",
+      "label": "Longitude"
+    },
+    {
+      "fieldname": "section_break_notes",
+      "fieldtype": "Section Break",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes"
+    }
+  ],
+  "index_web_pages_for_search": 1,
+  "is_submittable": 0,
+  "links": [
+    {
+      "link_doctype": "Vehicle Entry",
+      "link_fieldname": "slot"
+    },
+    {
+      "link_doctype": "Parking Reservation",
+      "link_fieldname": "slot"
+    }
+  ],
+  "modified": "2026-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Smart Parking",
+  "name": "Parking Slot",
+  "naming_rule": "Expression",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "role": "Parking Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "report": 1,
+      "export": 1,
+      "import": 1
+    },
+    {
+      "role": "Parking Supervisor",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "report": 1,
+      "export": 1
+    },
+    {
+      "role": "Parking Attendant",
+      "read": 1,
+      "write": 1,
+      "report": 1
+    },
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "report": 1,
+      "export": 1,
+      "import": 1
+    }
+  ],
+  "search_fields": "slot_number,zone,slot_type",
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": [],
+  "title_field": "slot_number",
+  "track_changes": 1
+}

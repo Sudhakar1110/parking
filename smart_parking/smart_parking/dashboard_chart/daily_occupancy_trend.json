@@ -1,0 +1,20 @@
+{
+ "creation": "2026-01-01 00:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart",
+ "document_type": "Vehicle Entry",
+ "field_x": "entry_time",
+ "field_y": "parking_fee",
+ "filters_json": "[[\"Vehicle Entry\",\"docstatus\",\"=\",1]]",
+ "group_by_type": "Count",
+ "is_standard": "Yes",
+ "label": "Daily Occupancy Trend",
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Smart Parking",
+ "name": "Daily Occupancy Trend",
+ "owner": "Administrator",
+ "time_interval": "Daily",
+ "type": "Line",
+ "width": "Half"
+}

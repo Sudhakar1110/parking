@@ -1,0 +1,145 @@
+{
+ "actions": [],
+ "creation": "2026-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "general_settings_section",
+  "company",
+  "default_currency",
+  "column_break_general",
+  "overdue_threshold_hours",
+  "auto_release_expired_reservations",
+  "section_break_notifications",
+  "send_occupancy_alerts",
+  "occupancy_alert_threshold",
+  "column_break_notifications",
+  "send_reservation_expiry_reminders",
+  "send_overdue_vehicle_alerts",
+  "section_break_integration",
+  "auto_create_sales_invoice",
+  "default_customer_group",
+  "column_break_integration",
+  "auto_create_customer"
+ ],
+ "fields": [
+  {
+   "fieldname": "general_settings_section",
+   "fieldtype": "Section Break",
+   "label": "General Settings"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "default_currency",
+   "fieldtype": "Link",
+   "label": "Default Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "column_break_general",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "24",
+   "fieldname": "overdue_threshold_hours",
+   "fieldtype": "Int",
+   "label": "Overdue Threshold (Hours)"
+  },
+  {
+   "default": "1",
+   "fieldname": "auto_release_expired_reservations",
+   "fieldtype": "Check",
+   "label": "Auto-Release Expired Reservations"
+  },
+  {
+   "fieldname": "section_break_notifications",
+   "fieldtype": "Section Break",
+   "label": "Notification Settings"
+  },
+  {
+   "default": "1",
+   "fieldname": "send_occupancy_alerts",
+   "fieldtype": "Check",
+   "label": "Send Occupancy Alerts"
+  },
+  {
+   "default": "90",
+   "fieldname": "occupancy_alert_threshold",
+   "fieldtype": "Int",
+   "label": "Occupancy Alert Threshold (%)"
+  },
+  {
+   "fieldname": "column_break_notifications",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "send_reservation_expiry_reminders",
+   "fieldtype": "Check",
+   "label": "Send Reservation Expiry Reminders"
+  },
+  {
+   "default": "1",
+   "fieldname": "send_overdue_vehicle_alerts",
+   "fieldtype": "Check",
+   "label": "Send Overdue Vehicle Alerts"
+  },
+  {
+   "fieldname": "section_break_integration",
+   "fieldtype": "Section Break",
+   "label": "ERPNext Integration"
+  },
+  {
+   "default": "0",
+   "fieldname": "auto_create_sales_invoice",
+   "fieldtype": "Check",
+   "label": "Auto-Create Sales Invoice on Payment"
+  },
+  {
+   "fieldname": "default_customer_group",
+   "fieldtype": "Link",
+   "label": "Default Customer Group",
+   "options": "Customer Group"
+  },
+  {
+   "fieldname": "column_break_integration",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "auto_create_customer",
+   "fieldtype": "Check",
+   "label": "Auto-Create Customer for New Vehicles"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "is_submittable": 0,
+ "links": [],
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Smart Parking",
+ "name": "Smart Parking Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "Parking Manager",
+   "read": 1,
+   "write": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0
+}

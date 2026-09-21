@@ -1,0 +1,19 @@
+{
+ "creation": "2026-01-01 00:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Number Card",
+ "filters_json": "[[\"Parking Payment\",\"payment_date\",\"=\",\"Today\"],[\"Parking Payment\",\"docstatus\",\"=\",1]]",
+ "function": "Sum",
+ "is_standard": "Yes",
+ "label": "Today Revenue",
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Smart Parking",
+ "name": "Today Revenue",
+ "owner": "Administrator",
+ "report_field": "amount_paid",
+ "report_method": "frappe.client.get_list",
+ "show_percentage_change": 1,
+ "time_interval": "Daily",
+ "type": "Custom"
+}
