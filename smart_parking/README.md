@@ -51,15 +51,53 @@ bench restart
 
 ```bash
 bench --site <site-name> execute smart_parking.smart_parking.create_demo_data.execute
-```
-
-## Custom Roles
+```## Custom Roles
 
 - **Parking Manager** — Full CRUD on all doctypes
 - **Parking Supervisor** — Read/write/create/submit
 - **Parking Attendant** — Read/write/create on entries/payments
 - **Customer** — Portal access
 
-## License
+## Planned Features (Roadmap)
 
+### Payments & Billing
+- Online payment gateway integration (Razorpay / Stripe / PayPal)
+- Monthly passes / subscriptions for regular parkers
+- Wallet / prepaid balance per customer
+- Discount & promo code support
+- Tax configuration (GST/VAT) on parking fees
+- Refund & cancellation charge workflow
+- Late fee / penalty for overstays
+
+### Hardware & IoT
+- ANPR / license plate camera recognition for automatic entry/exit
+- RFID / NFC tag-based access
+- Boom barrier / gate control integration
+- IoT slot occupancy sensors (ultrasonic / camera) for real-time slot status
+- LED display board integration (available slot counts)
+- QR-code tickets for self check-in/check-out
+
+### Customer Experience
+- Prepayment at reservation booking
+- Extend / modify reservation from the portal
+- Slot map / floor-plan navigation view
+- Push / SMS / WhatsApp notifications
+- Guest booking without account registration
+- Multi-language portal support
+
+### Operations
+- Auto slot assignment (nearest / first-available)
+- EV charging session tracking & electricity billing
+- Slot maintenance scheduling (preventive maintenance calendar)
+- Vehicle blacklist/whitelist with auto-alert on entry
+- Multi-facility / multi-site support
+- Valet management workflow
+
+### Analytics & Reporting
+- Peak-hour analysis / occupancy heatmap
+- Demand forecasting for capacity planning
+- Revenue export (Excel/PDF) and scheduled report delivery
+- Repeat-customer / revenue-per-customer analytics
+
+## License
 MIT License — Copyright (c) 2026 Sudhakar
